@@ -41,7 +41,7 @@ export const login = async (req: Request, res: Response) => {
 
   try {
     const user = await prisma.user.findUnique({
-      where: { email: email, password: password },
+      where: { email: email },
     });
 
     if (!user) return res.send({ message: "user not found" });
