@@ -1,11 +1,16 @@
-import { InputComp } from "@/components/InputComp";
+"use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Coffee } from "lucide-react";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push("/login");
+  };
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <div className="w-1/2 h-full flex flex-col justify-center items-center bg-amber-400 relative">
@@ -33,7 +38,10 @@ export default function Signup() {
 
       <div className="w-1/2 h-full flex flex-col justify-center items-center relative ">
         <div className="flex justify-center items-center gap-2 absolute top-[32px] right-[80px]">
-          <Button className="bg-[#F4F4F5] text-[#18181B] inter text-[14px] font-[500]">
+          <Button
+            onClick={onClick}
+            className="bg-[#F4F4F5] text-[#18181B] inter text-[14px] font-[500] hover:bg-[#F4F4F5]/50"
+          >
             Log in
           </Button>
         </div>
