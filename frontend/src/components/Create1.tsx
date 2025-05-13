@@ -1,5 +1,5 @@
 import { Camera } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { z } from "zod";
@@ -33,12 +33,15 @@ const formSchema = z.object({
 });
 
 export const Create1 = () => {
+  const [preview, setPreview] = useState<string | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       about: "",
       url: "",
+      photo: null,
     },
   });
 
@@ -52,7 +55,10 @@ export const Create1 = () => {
         Complete your profile page
       </p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-6"
+        >
           <div className="flex flex-col gap-3 relative">
             <FormField
               control={form.control}
@@ -63,6 +69,17 @@ export const Create1 = () => {
                     type="file"
                     className="absolute top-[90px] hidden "
                     id="photo-upload"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        field.onChange(file); // update form
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                          setPreview(reader.result as string);
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
                   />
                   <p className="font-[500] text-[14px] text-[#09090B]">
                     Add photo
@@ -71,12 +88,20 @@ export const Create1 = () => {
                     htmlFor="photo-upload"
                     className="font-[500] text-[14px] text-[#09090B] w-[160px] h-[160px] border-2 border-[#E4E4E7] border-dashed rounded-full flex justify-center items-center"
                   >
-                    <Camera
-                      color="#18181B"
-                      strokeWidth={1.5}
-                      opacity={0.5}
-                      size={23}
-                    />
+                    {preview ? (
+                      <img
+                        src={preview}
+                        alt="Selected"
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    ) : (
+                      <Camera
+                        color="#18181B"
+                        strokeWidth={1.5}
+                        opacity={0.5}
+                        size={23}
+                      />
+                    )}
                   </Label>
                   <FormMessage />
                 </FormItem>
@@ -135,6 +160,7 @@ export const Create1 = () => {
               />
             </div>
           </div>
+
           <div className="w-full flex justify-end items-center">
             <Button type="submit" className="w-[246px]">
               Continue
