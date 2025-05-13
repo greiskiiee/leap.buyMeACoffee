@@ -1,9 +1,11 @@
 import express, { json } from "express";
 import { userRouter } from "./routes/user";
 import { authRouter } from "./routes/auth";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors());
 app.use(json());
 
 app.use("/user", userRouter);
