@@ -1,5 +1,6 @@
 "use client";
 import { Create1 } from "@/components/Create1";
+import { Create2 } from "@/components/Create2";
 import { Button } from "@/components/ui/button";
 import { Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -29,7 +30,7 @@ export default function CreateProfile() {
       </div>
 
       <div className="w-[510px] h-fit flex flex-col gap-6">
-        <Create1 />
+        <Create2 />
       </div>
     </div>
   );

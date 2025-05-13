@@ -72,7 +72,7 @@ export const Create1 = () => {
                     onChange={(e) => {
                       const file = e.target.files?.[0];
                       if (file) {
-                        field.onChange(file); // update form
+                        field.onChange(file);
                         const reader = new FileReader();
                         reader.onloadend = () => {
                           setPreview(reader.result as string);
