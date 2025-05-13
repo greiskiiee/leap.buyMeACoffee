@@ -4,12 +4,17 @@ import { Create2 } from "@/components/Create2";
 import { Button } from "@/components/ui/button";
 import { Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CreateProfile() {
+  const [step, setStep] = useState<1 | 2>(1);
+
   const router = useRouter();
+
   const onClick = () => {
     router.push("/login");
   };
+
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="flex w-full px-4 py-2 justify-between items-center">
@@ -30,7 +35,11 @@ export default function CreateProfile() {
       </div>
 
       <div className="w-[510px] h-fit flex flex-col gap-6">
-        <Create2 />
+        {step === 1 ? (
+          <Create1 onContinue={() => setStep(2)} />
+        ) : (
+          <Create2 onContinue={() => router.push("/")} />
+        )}
       </div>
     </div>
   );

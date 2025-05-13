@@ -15,6 +15,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+type Create1Props = {
+  onContinue: () => void;
+};
+
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Please enter name",
@@ -32,7 +36,7 @@ const formSchema = z.object({
     }),
 });
 
-export const Create1 = () => {
+export const Create1 = ({ onContinue }: Create1Props) => {
   const [preview, setPreview] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -47,6 +51,7 @@ export const Create1 = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    onContinue();
   };
 
   return (

@@ -21,17 +21,21 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
+type Create2Props = {
+  onContinue: () => void;
+};
+
 const formSchema = z.object({
   name: z.string().min(2, { message: "Select country to continue" }),
   firstname: z.string().min(2, { message: "First name must match" }),
   lastname: z.string().min(2, { message: "Last name must match" }),
-  card: z.string().length(12, { message: "Card number must be 16 digits" }),
+  card: z.string().length(19, { message: "Card number must be 16 digits" }),
   month: z.string().min(1, { message: "Select a month" }),
   year: z.string().min(4, { message: "Select a valid year" }),
   cvc: z.string().length(3, { message: "Invalid CVC" }),
 });
 
-export const Create2 = () => {
+export const Create2 = ({ onContinue }: Create2Props) => {
   const [countries, setCountries] = useState<string[]>([]);
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 10 }, (_, i) =>
@@ -72,6 +76,7 @@ export const Create2 = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    onContinue();
   };
   return (
     <div className="w-full h-fit flex flex-col justify-center items-center">
