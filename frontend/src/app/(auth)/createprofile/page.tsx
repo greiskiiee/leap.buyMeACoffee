@@ -1,4 +1,5 @@
 "use client";
+import { Create1 } from "@/components/Create1";
 import { Button } from "@/components/ui/button";
 import { Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -28,6 +29,7 @@ export default function CreateProfile() {
       </div>
 
       <div className="w-[510px] h-fit flex flex-col gap-6">
+        <Create1 />
         <div className="w-full flex justify-end items-center">
           <Button className="w-[246px]">Continue</Button>
         </div>
