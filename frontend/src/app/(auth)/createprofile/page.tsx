@@ -30,9 +30,6 @@ export default function CreateProfile() {
 
       <div className="w-[510px] h-fit flex flex-col gap-6">
         <Create1 />
-        <div className="w-full flex justify-end items-center">
-          <Button className="w-[246px]">Continue</Button>
-        </div>
       </div>
     </div>
   );
