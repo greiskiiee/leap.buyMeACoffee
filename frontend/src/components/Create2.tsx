@@ -25,7 +25,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Select country to continue" }),
   firstname: z.string().min(2, { message: "First name must match" }),
   lastname: z.string().min(2, { message: "Last name must match" }),
-  card: z.string().length(12, { message: "Card number must be 12 digits" }),
+  card: z.string().length(12, { message: "Card number must be 16 digits" }),
   month: z.string().min(1, { message: "Select a month" }),
   year: z.string().min(4, { message: "Select a valid year" }),
   cvc: z.string().length(3, { message: "Invalid CVC" }),
@@ -39,7 +39,7 @@ export const Create2 = () => {
   );
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://restcountries.com/v3.1/all?fields=name")
       .then((res) => res.json())
       .then((data) => {
         const countryNames = data.map((c: any) => c.name.common).sort();
@@ -62,6 +62,13 @@ export const Create2 = () => {
       cvc: "",
     },
   });
+
+  const formatCardNumber = (value: string) => {
+    return value
+      .replace(/\D/g, "")
+      .substring(0, 16)
+      .replace(/(\d{4})(?=\d)/g, "$1-");
+  };
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
@@ -165,6 +172,9 @@ export const Create2 = () => {
                     placeholder="XXXX-XXXX-XXXX-XXXX"
                     {...field}
                     type="text"
+                    onChange={(e) =>
+                      field.onChange(formatCardNumber(e.target.value))
+                    }
                   />
                 </FormControl>
                 <FormMessage />
