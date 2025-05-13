@@ -1,73 +1,40 @@
 "use client";
+import { SignupCheckname } from "@/components/SignupCheckname";
+import { SignupMail } from "@/components/SignupMail";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import axios from "axios";
-import Error from "next/error";
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Please enter name",
-  }),
-});
+import { useState } from "react";
 
 export default function Signup() {
-  const router = useRouter();
-  const [usernameStatus, setUsernameStatus] = useState<
-    "available" | "taken" | "checking" | ""
-  >("");
-
+  const [step, setStep] = useState<1 | 2>(1);
   const [username, setUsername] = useState("");
-  const usernameRef = useRef("");
-  const [usernameError, setUsernameError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const onClick = () => {
     router.push("/login");
   };
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
-  });
-
-  const checkUsername = async (username: string) => {
-    if (!username || username.length < 2) return;
-    setUsernameStatus("checking");
+  const createUser = async () => {
+    const data = await {
+      username: username,
+      email: email,
+      password: password,
+    };
+    console.log(data, "data");
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URI}/auth/check`,
-        { username }
+        `${process.env.NEXT_PUBLIC_BACKEND_URI}/auth/signup`,
+        data
       );
-      if (res.data?.message === "Username already taken") {
-        setUsernameStatus("taken");
-      } else {
-        setUsernameStatus("available");
-      }
+      console.log("working");
     } catch (error) {
-      console.error(error);
-      setUsernameStatus("");
+      console.log(error);
     }
-  };
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    await checkUsername(values.username);
-    console.log(values);
   };
 
   return (
@@ -104,66 +71,18 @@ export default function Signup() {
           </Button>
         </div>
         {/* username */}
-        <div className="w-[470px] h-fit flex flex-col justify-center items-center">
-          <div className="w-full h-fit p-6 flex flex-col justify-center items-start gap-[6px]">
-            <p className="inter font-[600] text-[24px] text-[#09090B]">
-              Create Your Account
-            </p>
-            <p className="inter font-[400] text-[14px] text-[#71717A]">
-              Choose a username for your page
-            </p>
-          </div>
-
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full h-fit px-6 pb-6 flex flex-col justify-center items-start gap-6"
-            >
-              <div className="w-full h-fit flex flex-col gap-4">
-                <FormField
-                  control={form.control}
-                  name="username"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Username</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your name here"
-                          {...field}
-                          onBlur={(e) => checkUsername(e.target.value)}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      {usernameStatus === "available" && (
-                        <p className="text-green-600 text-sm mt-1">
-                          Username is available ✅
-                        </p>
-                      )}
-                      {usernameStatus === "taken" && (
-                        <p className="text-red-600 text-sm mt-1">
-                          Username is already taken ❌
-                        </p>
-                      )}
-                      {usernameStatus === "checking" && (
-                        <p className="text-gray-600 text-sm mt-1">
-                          Checking...
-                        </p>
-                      )}
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full disabled:cursor-not-allowed"
-                disabled={!(usernameStatus === "available")}
-              >
-                Continue
-              </Button>
-            </form>
-          </Form>
-        </div>
+        {step === 1 ? (
+          <SignupCheckname
+            onContinue={() => setStep(2)}
+            setUsernameGlobal={setUsername}
+          />
+        ) : (
+          <SignupMail
+            onContinue={createUser}
+            setMail={setEmail}
+            setPass={setPassword}
+          />
+        )}
       </div>{" "}
     </div>
   );
