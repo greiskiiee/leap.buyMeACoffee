@@ -48,9 +48,7 @@ export const Create2 = () => {
       .catch((err) => console.error("Failed to fetch countries", err));
   }, []);
 
-  const months = Array.from({ length: 12 }, (_, i) =>
-    (i + 1).toString().padStart(2, "0")
-  );
+  const months = Array.from({ length: 12 }, (_, i) => (i + 1).toString());
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
