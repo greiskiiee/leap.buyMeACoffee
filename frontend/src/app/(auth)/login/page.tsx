@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Coffee } from "lucide-react";
-import Error from "next/error";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
@@ -31,7 +30,7 @@ export default function Login() {
         data,
         { withCredentials: true }
       );
-      const token = res.data.token;
+      const token = res.data.cookie.token;
       console.log(token);
       const expiryTime = 60 * 1000 * 60;
       if (typeof window !== "undefined") {
