@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Plus_Jakarta_Sans, Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import { AuthContext } from "@/components/contexts/AuthContext";
+import { useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +40,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [user, setUser] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
   return (
     <html lang="en">
-      <body className={`${jakarta.variable}   antialiased`}>{children}</body>
+      <body className={`${jakarta.variable}   antialiased`}>
+        <AuthContext.Provider value={{ user, setUser }}>
+          {children}
+        </AuthContext.Provider>
+      </body>
     </html>
   );
 }
