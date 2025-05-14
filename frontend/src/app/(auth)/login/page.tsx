@@ -2,15 +2,60 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
 import { Coffee } from "lucide-react";
+import Error from "next/error";
 import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 
 export default function Login() {
   const router = useRouter();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const [passError, setPassError] = useState("");
 
   const onClick = () => {
     router.push("/signup");
   };
+
+  const handleLogIn = async () => {
+    const data = {
+      email: emailRef.current?.value,
+      password: passwordRef.current?.value,
+    };
+
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URI}/auth/login`,
+        data,
+        { withCredentials: true }
+      );
+      const token = res.data.token;
+      console.log(token);
+      const expiryTime = 60 * 1000 * 60;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", token);
+
+        setTimeout(() => {
+          localStorage.removeItem("token");
+          alert("Session expired. Please log in again.");
+          router.push("/login");
+        }, expiryTime);
+      }
+
+      if (res.data.message == "user not found") {
+        setPassError("Invalid email or password.");
+      } else {
+        setPassError("");
+        router.push("/");
+        console.log(data, "data");
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <div className="w-1/2 h-full flex flex-col justify-center items-center bg-amber-400 relative">
@@ -59,6 +104,7 @@ export default function Login() {
                 Email
               </Label>
               <Input
+                ref={emailRef}
                 placeholder="Enter email here"
                 type="text"
                 className="border border-[#E4E4E7]"
@@ -69,15 +115,19 @@ export default function Login() {
                 Password
               </Label>
               <Input
+                ref={passwordRef}
                 placeholder="Enter password here"
                 type="password"
                 className="border border-[#E4E4E7]"
               />
+              <p className="inter text-[12px] text-[#f00]">{passError}</p>
             </div>
           </div>
 
           <div className="w-full h-fit px-6 pb-6 flex flex-col justify-center items-start gap-[6px]">
-            <Button className="w-full">Continue</Button>
+            <Button onClick={handleLogIn} className="w-full">
+              Continue
+            </Button>
           </div>
         </div>
       </div>
