@@ -50,7 +50,7 @@ export const login = async (req: Request, res: Response) => {
 
     if (!isMatch) return res.send({ message: "Invalid email or password" });
 
-    const token = jwt.sign(user, secret_key as any, {
+    const token = jwt.sign({ ...user }, secret_key as any, {
       expiresIn: 60 * 1000 * 60,
     });
 
