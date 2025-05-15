@@ -43,8 +43,8 @@ export default function RootLayout({
 }>) {
   const [user, setUser] = useState({
     email: "",
-    username: "",
     password: "",
+    log: false,
   });
   return (
     <html lang="en">
