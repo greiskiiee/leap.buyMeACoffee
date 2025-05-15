@@ -1,10 +1,10 @@
 import { InputComp } from "@/components/InputComp";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, Coffee } from "lucide-react";
+
 import Image from "next/image";
 
 export default function Home() {
   return (
+
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       <div className="flex w-full px-4 py-2 justify-between items-center">
         <div className="flex justify-center items-center gap-2 absolute top-[32px] left-[80px]">
@@ -34,6 +34,8 @@ export default function Home() {
           <div></div>
         </div>
       </div>
+    <div>
+      Home page
     </div>
   );
 }
