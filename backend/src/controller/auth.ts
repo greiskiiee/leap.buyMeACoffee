@@ -62,3 +62,22 @@ export const login = async (req: Request, res: Response) => {
     return res.send({ error: error });
   }
 };
+
+export const logout = async (req: Request, res: Response) => {
+  const { email } = req.body;
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: { email: email },
+    });
+
+    if (!user) return res.send({ message: "user not found" });
+
+    return res
+      .clearCookie("token")
+      .send({ success: true, message: "logged out" });
+  } catch (error) {
+    console.log(error);
+    return res.send({ error: error });
+  }
+};
