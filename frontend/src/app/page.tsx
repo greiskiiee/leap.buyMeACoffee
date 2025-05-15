@@ -28,7 +28,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex"></div>
+      <div className="w-full h-fit flex">
+        <div className="w-[955px] h-fit flex flex-col gap-0 px-6">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 }
