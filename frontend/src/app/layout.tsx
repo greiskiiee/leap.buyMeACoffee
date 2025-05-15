@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Plus_Jakarta_Sans, Manrope, Inter } from "next/font/google";
@@ -30,10 +31,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Buy me a coffee",
-  description: "Created by chimegerdene",
-};
+// export const metadata: Metadata = {
+//   title: "Buy me a coffee",
+//   description: "Created by chimegerdene",
+// };
 
 export default function RootLayout({
   children,
