@@ -1,22 +1,22 @@
 "use client";
 import { createContext } from "react";
 
-// interface User {
-//   email: string;
-//   username: string;
-//   password: string;
-// }
+interface User {
+  email: string;
+  password: string;
+  log: boolean;
+}
 
-// interface AuthContextType {
-//   user: User;
-//   setUser: React.Dispatch<React.SetStateAction<User>>;
-// }
+interface AuthContextType {
+  user: User;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
+}
 
-export const AuthContext = createContext({
+export const AuthContext = createContext<AuthContextType>({
   user: {
     email: "",
-    username: "",
     password: "",
+    log: false,
   },
   setUser: () => {}, // placeholder
 });

@@ -1,11 +1,12 @@
 "use client";
+import { AuthContext } from "@/components/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Coffee } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 export default function Login() {
   const router = useRouter();
@@ -13,6 +14,8 @@ export default function Login() {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const [passError, setPassError] = useState("");
+
+  const { setUser } = useContext(AuthContext);
 
   const onClick = () => {
     router.push("/signup");
@@ -30,18 +33,12 @@ export default function Login() {
         data,
         { withCredentials: true }
       );
-      const token = res.data.cookie.token;
-      console.log(token);
-      const expiryTime = 60 * 1000 * 60;
-      if (typeof window !== "undefined") {
-        localStorage.setItem("token", token);
 
-        setTimeout(() => {
-          localStorage.removeItem("token");
-          alert("Session expired. Please log in again.");
-          router.push("/login");
-        }, expiryTime);
-      }
+      setUser({
+        email: data.email!,
+        password: data.password!,
+        log: true,
+      });
 
       if (res.data.message == "user not found") {
         setPassError("Invalid email or password.");
