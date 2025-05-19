@@ -1,3 +1,4 @@
+import { RecentTransactions } from "@/components/RecentTransactions";
 import { ChevronDown, Coffee } from "lucide-react";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <div className="w-[955px] h-fit flex flex-col gap-0 px-6">
           <div></div>
           <div></div>
+          <RecentTransactions />
         </div>
       </div>
       <div>Home page</div>
