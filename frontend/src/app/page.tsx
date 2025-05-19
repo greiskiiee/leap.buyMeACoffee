@@ -1,9 +1,11 @@
+import { Menu } from "@/components/Menu";
 import { RecentTransactions } from "@/components/RecentTransactions";
+import { User } from "@/components/User";
 import { ChevronDown, Coffee } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <div className="w-screen h-screen flex flex-col items-center justify-center absolute">
       <div className="flex w-full px-4 py-2 justify-between items-center">
         <div className="flex justify-center items-center gap-2 absolute top-[32px] left-[80px]">
           <Coffee color="#09090B" size={16} strokeWidth={3} />
@@ -26,14 +28,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full h-fit flex">
-        <div className="w-[955px] h-fit flex flex-col gap-0 px-6">
-          <div></div>
-          <div></div>
+      <Menu />
+      <div className="w-full h-fit flex absolute top-[130px] left-[405px]">
+        <div className="w-[955px] h-fit flex flex-col gap-8 px-6">
+          <User />
           <RecentTransactions />
         </div>
       </div>
-      <div>Home page</div>
     </div>
   );
 }
