@@ -92,7 +92,7 @@ export const RecentTransactions = () => {
         </Popover>
       </div>
 
-      <div className="w-full h-fit border border-[#E4E4E7] p-6 flex flex-col gap-4 rounded-lg">
+      <div className="w-full h-[460px] border border-[#E4E4E7] p-6 flex flex-col gap-4 rounded-lg">
         <div className="w-full h-fit flex flex-col p-3 gap-[10px]">
           <div className="w-full h-fit flex justify-between items-center">
             <div className="w-fit h-full flex gap-3">
