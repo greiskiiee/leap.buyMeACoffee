@@ -4,7 +4,10 @@ import { MyProfile } from "@/components/MyProfile";
 import { ChevronDown, Coffee } from "lucide-react";
 import React, { useState } from "react";
 
+
+
 export default function MyAccount() {
+
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center absolute">
       <div className="flex w-full px-4 py-2 justify-between items-center">
@@ -37,6 +40,7 @@ export default function MyAccount() {
         </p>
 
         <MyProfile />
+
       </div>
     </div>
   );

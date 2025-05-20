@@ -8,7 +8,13 @@ export const createUser = async (req: Request, res: Response) => {
 
   try {
     const response = await prisma.user.create({
-      data: { email: email, username: username, password: hashedPass },
+      data: {
+        email: email,
+        username: username,
+        password: hashedPass,
+        createdAt: Date.now().toString(),
+        updatedAt: Date.now().toString(),
+      },
     });
 
     return res.send({ success: true, message: response });
