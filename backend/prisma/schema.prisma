@@ -16,45 +16,50 @@ model User {
   email String  @unique
   username  String
   password String
-  receivedDonations Donations[] @relation()
+  receivedDonations Donations[] @relation("Recipient")
+  sentDonations     Donations[] @relation("Donor")
   createdAt DateTime
-  profile Profile 
-  bankCard BankCard[]
+  profile Profile? 
+  bankCard BankCard?
   updatedAt DateTime
 }
 
 model Donations {
   id    Int     @id @default(autoincrement())
+  donor User @relation("Donor", fields: [donorId], references: [id])
+  recipient User @relation("Recipient", fields: [recipientId], references: [id])
+  donorId Int 
+  recipientId Int 
   amount Int
-  specialMessage String
+  specialMessage String?
   socialURLOrBuyMeACoffee String
-  donorId Int
-  recipientId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model BankCard {
   id    Int     @id @default(autoincrement())
+  user User @relation( fields: [userId], references: [id])
   country String
   firstName String
   lastName String
   cardNumber String
   expiryDate DateTime
-  userId Int
+  userId Int @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Profile {
   id    Int     @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   name String
   about String
   avatarImage String
   socialMediaURL String
   backgroundImage String
   successMessage String
-  userId Int
+  userId Int @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

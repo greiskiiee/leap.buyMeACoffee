@@ -18,6 +18,21 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model Donations
+ * 
+ */
+export type Donations = $Result.DefaultSelection<Prisma.$DonationsPayload>
+/**
+ * Model BankCard
+ * 
+ */
+export type BankCard = $Result.DefaultSelection<Prisma.$BankCardPayload>
+/**
+ * Model Profile
+ * 
+ */
+export type Profile = $Result.DefaultSelection<Prisma.$ProfilePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -153,6 +168,36 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.donations`: Exposes CRUD operations for the **Donations** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Donations
+    * const donations = await prisma.donations.findMany()
+    * ```
+    */
+  get donations(): Prisma.DonationsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bankCard`: Exposes CRUD operations for the **BankCard** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BankCards
+    * const bankCards = await prisma.bankCard.findMany()
+    * ```
+    */
+  get bankCard(): Prisma.BankCardDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profile`: Exposes CRUD operations for the **Profile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Profiles
+    * const profiles = await prisma.profile.findMany()
+    * ```
+    */
+  get profile(): Prisma.ProfileDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +638,10 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User'
+    User: 'User',
+    Donations: 'Donations',
+    BankCard: 'BankCard',
+    Profile: 'Profile'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user"
+      modelProps: "user" | "donations" | "bankCard" | "profile"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -687,6 +735,228 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>
             result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Donations: {
+        payload: Prisma.$DonationsPayload<ExtArgs>
+        fields: Prisma.DonationsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DonationsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DonationsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          findFirst: {
+            args: Prisma.DonationsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DonationsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          findMany: {
+            args: Prisma.DonationsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>[]
+          }
+          create: {
+            args: Prisma.DonationsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          createMany: {
+            args: Prisma.DonationsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DonationsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>[]
+          }
+          delete: {
+            args: Prisma.DonationsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          update: {
+            args: Prisma.DonationsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          deleteMany: {
+            args: Prisma.DonationsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DonationsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DonationsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>[]
+          }
+          upsert: {
+            args: Prisma.DonationsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DonationsPayload>
+          }
+          aggregate: {
+            args: Prisma.DonationsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDonations>
+          }
+          groupBy: {
+            args: Prisma.DonationsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DonationsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DonationsCountArgs<ExtArgs>
+            result: $Utils.Optional<DonationsCountAggregateOutputType> | number
+          }
+        }
+      }
+      BankCard: {
+        payload: Prisma.$BankCardPayload<ExtArgs>
+        fields: Prisma.BankCardFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BankCardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BankCardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          findFirst: {
+            args: Prisma.BankCardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BankCardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          findMany: {
+            args: Prisma.BankCardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          create: {
+            args: Prisma.BankCardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          createMany: {
+            args: Prisma.BankCardCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BankCardCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          delete: {
+            args: Prisma.BankCardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          update: {
+            args: Prisma.BankCardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          deleteMany: {
+            args: Prisma.BankCardDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BankCardUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BankCardUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>[]
+          }
+          upsert: {
+            args: Prisma.BankCardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BankCardPayload>
+          }
+          aggregate: {
+            args: Prisma.BankCardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBankCard>
+          }
+          groupBy: {
+            args: Prisma.BankCardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BankCardGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BankCardCountArgs<ExtArgs>
+            result: $Utils.Optional<BankCardCountAggregateOutputType> | number
+          }
+        }
+      }
+      Profile: {
+        payload: Prisma.$ProfilePayload<ExtArgs>
+        fields: Prisma.ProfileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          findFirst: {
+            args: Prisma.ProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          findMany: {
+            args: Prisma.ProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          create: {
+            args: Prisma.ProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          createMany: {
+            args: Prisma.ProfileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          delete: {
+            args: Prisma.ProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          update: {
+            args: Prisma.ProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
+          }
+          upsert: {
+            args: Prisma.ProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
+          }
+          aggregate: {
+            args: Prisma.ProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfile>
+          }
+          groupBy: {
+            args: Prisma.ProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileCountAggregateOutputType> | number
           }
         }
       }
@@ -775,6 +1045,9 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
+    donations?: DonationsOmit
+    bankCard?: BankCardOmit
+    profile?: ProfileOmit
   }
 
   /* Types for Logging */
@@ -864,6 +1137,45 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    receivedDonations: number
+    sentDonations: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    receivedDonations?: boolean | UserCountOutputTypeCountReceivedDonationsArgs
+    sentDonations?: boolean | UserCountOutputTypeCountSentDonationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountReceivedDonationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DonationsWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSentDonationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DonationsWhereInput
+  }
+
 
   /**
    * Models
@@ -894,6 +1206,8 @@ export namespace Prisma {
     email: string | null
     username: string | null
     password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -901,6 +1215,8 @@ export namespace Prisma {
     email: string | null
     username: string | null
     password: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -908,6 +1224,8 @@ export namespace Prisma {
     email: number
     username: number
     password: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -925,6 +1243,8 @@ export namespace Prisma {
     email?: true
     username?: true
     password?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -932,6 +1252,8 @@ export namespace Prisma {
     email?: true
     username?: true
     password?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -939,6 +1261,8 @@ export namespace Prisma {
     email?: true
     username?: true
     password?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -1033,6 +1357,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
+    createdAt: Date
+    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1059,6 +1385,13 @@ export namespace Prisma {
     email?: boolean
     username?: boolean
     password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    receivedDonations?: boolean | User$receivedDonationsArgs<ExtArgs>
+    sentDonations?: boolean | User$sentDonationsArgs<ExtArgs>
+    profile?: boolean | User$profileArgs<ExtArgs>
+    bankCard?: boolean | User$bankCardArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1066,6 +1399,8 @@ export namespace Prisma {
     email?: boolean
     username?: boolean
     password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1073,6 +1408,8 @@ export namespace Prisma {
     email?: boolean
     username?: boolean
     password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1080,18 +1417,36 @@ export namespace Prisma {
     email?: boolean
     username?: boolean
     password?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "password", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    receivedDonations?: boolean | User$receivedDonationsArgs<ExtArgs>
+    sentDonations?: boolean | User$sentDonationsArgs<ExtArgs>
+    profile?: boolean | User$profileArgs<ExtArgs>
+    bankCard?: boolean | User$bankCardArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
-    objects: {}
+    objects: {
+      receivedDonations: Prisma.$DonationsPayload<ExtArgs>[]
+      sentDonations: Prisma.$DonationsPayload<ExtArgs>[]
+      profile: Prisma.$ProfilePayload<ExtArgs> | null
+      bankCard: Prisma.$BankCardPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       email: string
       username: string
       password: string
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1486,6 +1841,10 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    receivedDonations<T extends User$receivedDonationsArgs<ExtArgs> = {}>(args?: Subset<T, User$receivedDonationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sentDonations<T extends User$sentDonationsArgs<ExtArgs> = {}>(args?: Subset<T, User$sentDonationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    profile<T extends User$profileArgs<ExtArgs> = {}>(args?: Subset<T, User$profileArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    bankCard<T extends User$bankCardArgs<ExtArgs> = {}>(args?: Subset<T, User$bankCardArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1519,6 +1878,8 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly username: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -1535,6 +1896,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * Filter, which User to fetch.
      */
@@ -1554,6 +1919,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where: UserWhereUniqueInput
@@ -1571,6 +1940,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * Filter, which User to fetch.
      */
@@ -1620,6 +1993,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where?: UserWhereInput
@@ -1668,6 +2045,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which Users to fetch.
      */
     where?: UserWhereInput
@@ -1710,6 +2091,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to create a User.
      */
@@ -1758,6 +2143,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to update a User.
      */
@@ -1825,6 +2214,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * The filter to search for the User to update in case it exists.
      */
     where: UserWhereUniqueInput
@@ -1851,6 +2244,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter which User to delete.
      */
     where: UserWhereUniqueInput
@@ -1871,6 +2268,92 @@ export namespace Prisma {
   }
 
   /**
+   * User.receivedDonations
+   */
+  export type User$receivedDonationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    where?: DonationsWhereInput
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    cursor?: DonationsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DonationsScalarFieldEnum | DonationsScalarFieldEnum[]
+  }
+
+  /**
+   * User.sentDonations
+   */
+  export type User$sentDonationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    where?: DonationsWhereInput
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    cursor?: DonationsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DonationsScalarFieldEnum | DonationsScalarFieldEnum[]
+  }
+
+  /**
+   * User.profile
+   */
+  export type User$profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    where?: ProfileWhereInput
+  }
+
+  /**
+   * User.bankCard
+   */
+  export type User$bankCardArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    where?: BankCardWhereInput
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1882,6 +2365,3470 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Donations
+   */
+
+  export type AggregateDonations = {
+    _count: DonationsCountAggregateOutputType | null
+    _avg: DonationsAvgAggregateOutputType | null
+    _sum: DonationsSumAggregateOutputType | null
+    _min: DonationsMinAggregateOutputType | null
+    _max: DonationsMaxAggregateOutputType | null
+  }
+
+  export type DonationsAvgAggregateOutputType = {
+    id: number | null
+    donorId: number | null
+    recipientId: number | null
+    amount: number | null
+  }
+
+  export type DonationsSumAggregateOutputType = {
+    id: number | null
+    donorId: number | null
+    recipientId: number | null
+    amount: number | null
+  }
+
+  export type DonationsMinAggregateOutputType = {
+    id: number | null
+    donorId: number | null
+    recipientId: number | null
+    amount: number | null
+    specialMessage: string | null
+    socialURLOrBuyMeACoffee: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DonationsMaxAggregateOutputType = {
+    id: number | null
+    donorId: number | null
+    recipientId: number | null
+    amount: number | null
+    specialMessage: string | null
+    socialURLOrBuyMeACoffee: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DonationsCountAggregateOutputType = {
+    id: number
+    donorId: number
+    recipientId: number
+    amount: number
+    specialMessage: number
+    socialURLOrBuyMeACoffee: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DonationsAvgAggregateInputType = {
+    id?: true
+    donorId?: true
+    recipientId?: true
+    amount?: true
+  }
+
+  export type DonationsSumAggregateInputType = {
+    id?: true
+    donorId?: true
+    recipientId?: true
+    amount?: true
+  }
+
+  export type DonationsMinAggregateInputType = {
+    id?: true
+    donorId?: true
+    recipientId?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DonationsMaxAggregateInputType = {
+    id?: true
+    donorId?: true
+    recipientId?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DonationsCountAggregateInputType = {
+    id?: true
+    donorId?: true
+    recipientId?: true
+    amount?: true
+    specialMessage?: true
+    socialURLOrBuyMeACoffee?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DonationsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Donations to aggregate.
+     */
+    where?: DonationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DonationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Donations
+    **/
+    _count?: true | DonationsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DonationsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DonationsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DonationsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DonationsMaxAggregateInputType
+  }
+
+  export type GetDonationsAggregateType<T extends DonationsAggregateArgs> = {
+        [P in keyof T & keyof AggregateDonations]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDonations[P]>
+      : GetScalarType<T[P], AggregateDonations[P]>
+  }
+
+
+
+
+  export type DonationsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DonationsWhereInput
+    orderBy?: DonationsOrderByWithAggregationInput | DonationsOrderByWithAggregationInput[]
+    by: DonationsScalarFieldEnum[] | DonationsScalarFieldEnum
+    having?: DonationsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DonationsCountAggregateInputType | true
+    _avg?: DonationsAvgAggregateInputType
+    _sum?: DonationsSumAggregateInputType
+    _min?: DonationsMinAggregateInputType
+    _max?: DonationsMaxAggregateInputType
+  }
+
+  export type DonationsGroupByOutputType = {
+    id: number
+    donorId: number
+    recipientId: number
+    amount: number
+    specialMessage: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt: Date
+    updatedAt: Date
+    _count: DonationsCountAggregateOutputType | null
+    _avg: DonationsAvgAggregateOutputType | null
+    _sum: DonationsSumAggregateOutputType | null
+    _min: DonationsMinAggregateOutputType | null
+    _max: DonationsMaxAggregateOutputType | null
+  }
+
+  type GetDonationsGroupByPayload<T extends DonationsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DonationsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DonationsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DonationsGroupByOutputType[P]>
+            : GetScalarType<T[P], DonationsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DonationsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    donorId?: boolean
+    recipientId?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["donations"]>
+
+  export type DonationsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    donorId?: boolean
+    recipientId?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["donations"]>
+
+  export type DonationsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    donorId?: boolean
+    recipientId?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["donations"]>
+
+  export type DonationsSelectScalar = {
+    id?: boolean
+    donorId?: boolean
+    recipientId?: boolean
+    amount?: boolean
+    specialMessage?: boolean
+    socialURLOrBuyMeACoffee?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DonationsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "donorId" | "recipientId" | "amount" | "specialMessage" | "socialURLOrBuyMeACoffee" | "createdAt" | "updatedAt", ExtArgs["result"]["donations"]>
+  export type DonationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DonationsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DonationsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    donor?: boolean | UserDefaultArgs<ExtArgs>
+    recipient?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $DonationsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Donations"
+    objects: {
+      donor: Prisma.$UserPayload<ExtArgs>
+      recipient: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      donorId: number
+      recipientId: number
+      amount: number
+      specialMessage: string | null
+      socialURLOrBuyMeACoffee: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["donations"]>
+    composites: {}
+  }
+
+  type DonationsGetPayload<S extends boolean | null | undefined | DonationsDefaultArgs> = $Result.GetResult<Prisma.$DonationsPayload, S>
+
+  type DonationsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DonationsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DonationsCountAggregateInputType | true
+    }
+
+  export interface DonationsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Donations'], meta: { name: 'Donations' } }
+    /**
+     * Find zero or one Donations that matches the filter.
+     * @param {DonationsFindUniqueArgs} args - Arguments to find a Donations
+     * @example
+     * // Get one Donations
+     * const donations = await prisma.donations.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DonationsFindUniqueArgs>(args: SelectSubset<T, DonationsFindUniqueArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Donations that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DonationsFindUniqueOrThrowArgs} args - Arguments to find a Donations
+     * @example
+     * // Get one Donations
+     * const donations = await prisma.donations.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DonationsFindUniqueOrThrowArgs>(args: SelectSubset<T, DonationsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Donations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsFindFirstArgs} args - Arguments to find a Donations
+     * @example
+     * // Get one Donations
+     * const donations = await prisma.donations.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DonationsFindFirstArgs>(args?: SelectSubset<T, DonationsFindFirstArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Donations that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsFindFirstOrThrowArgs} args - Arguments to find a Donations
+     * @example
+     * // Get one Donations
+     * const donations = await prisma.donations.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DonationsFindFirstOrThrowArgs>(args?: SelectSubset<T, DonationsFindFirstOrThrowArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Donations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Donations
+     * const donations = await prisma.donations.findMany()
+     * 
+     * // Get first 10 Donations
+     * const donations = await prisma.donations.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const donationsWithIdOnly = await prisma.donations.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DonationsFindManyArgs>(args?: SelectSubset<T, DonationsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Donations.
+     * @param {DonationsCreateArgs} args - Arguments to create a Donations.
+     * @example
+     * // Create one Donations
+     * const Donations = await prisma.donations.create({
+     *   data: {
+     *     // ... data to create a Donations
+     *   }
+     * })
+     * 
+     */
+    create<T extends DonationsCreateArgs>(args: SelectSubset<T, DonationsCreateArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Donations.
+     * @param {DonationsCreateManyArgs} args - Arguments to create many Donations.
+     * @example
+     * // Create many Donations
+     * const donations = await prisma.donations.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DonationsCreateManyArgs>(args?: SelectSubset<T, DonationsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Donations and returns the data saved in the database.
+     * @param {DonationsCreateManyAndReturnArgs} args - Arguments to create many Donations.
+     * @example
+     * // Create many Donations
+     * const donations = await prisma.donations.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Donations and only return the `id`
+     * const donationsWithIdOnly = await prisma.donations.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DonationsCreateManyAndReturnArgs>(args?: SelectSubset<T, DonationsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Donations.
+     * @param {DonationsDeleteArgs} args - Arguments to delete one Donations.
+     * @example
+     * // Delete one Donations
+     * const Donations = await prisma.donations.delete({
+     *   where: {
+     *     // ... filter to delete one Donations
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DonationsDeleteArgs>(args: SelectSubset<T, DonationsDeleteArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Donations.
+     * @param {DonationsUpdateArgs} args - Arguments to update one Donations.
+     * @example
+     * // Update one Donations
+     * const donations = await prisma.donations.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DonationsUpdateArgs>(args: SelectSubset<T, DonationsUpdateArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Donations.
+     * @param {DonationsDeleteManyArgs} args - Arguments to filter Donations to delete.
+     * @example
+     * // Delete a few Donations
+     * const { count } = await prisma.donations.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DonationsDeleteManyArgs>(args?: SelectSubset<T, DonationsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Donations
+     * const donations = await prisma.donations.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DonationsUpdateManyArgs>(args: SelectSubset<T, DonationsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Donations and returns the data updated in the database.
+     * @param {DonationsUpdateManyAndReturnArgs} args - Arguments to update many Donations.
+     * @example
+     * // Update many Donations
+     * const donations = await prisma.donations.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Donations and only return the `id`
+     * const donationsWithIdOnly = await prisma.donations.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DonationsUpdateManyAndReturnArgs>(args: SelectSubset<T, DonationsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Donations.
+     * @param {DonationsUpsertArgs} args - Arguments to update or create a Donations.
+     * @example
+     * // Update or create a Donations
+     * const donations = await prisma.donations.upsert({
+     *   create: {
+     *     // ... data to create a Donations
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Donations we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DonationsUpsertArgs>(args: SelectSubset<T, DonationsUpsertArgs<ExtArgs>>): Prisma__DonationsClient<$Result.GetResult<Prisma.$DonationsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsCountArgs} args - Arguments to filter Donations to count.
+     * @example
+     * // Count the number of Donations
+     * const count = await prisma.donations.count({
+     *   where: {
+     *     // ... the filter for the Donations we want to count
+     *   }
+     * })
+    **/
+    count<T extends DonationsCountArgs>(
+      args?: Subset<T, DonationsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DonationsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DonationsAggregateArgs>(args: Subset<T, DonationsAggregateArgs>): Prisma.PrismaPromise<GetDonationsAggregateType<T>>
+
+    /**
+     * Group by Donations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DonationsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DonationsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DonationsGroupByArgs['orderBy'] }
+        : { orderBy?: DonationsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DonationsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDonationsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Donations model
+   */
+  readonly fields: DonationsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Donations.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DonationsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    donor<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    recipient<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Donations model
+   */
+  interface DonationsFieldRefs {
+    readonly id: FieldRef<"Donations", 'Int'>
+    readonly donorId: FieldRef<"Donations", 'Int'>
+    readonly recipientId: FieldRef<"Donations", 'Int'>
+    readonly amount: FieldRef<"Donations", 'Int'>
+    readonly specialMessage: FieldRef<"Donations", 'String'>
+    readonly socialURLOrBuyMeACoffee: FieldRef<"Donations", 'String'>
+    readonly createdAt: FieldRef<"Donations", 'DateTime'>
+    readonly updatedAt: FieldRef<"Donations", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Donations findUnique
+   */
+  export type DonationsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where: DonationsWhereUniqueInput
+  }
+
+  /**
+   * Donations findUniqueOrThrow
+   */
+  export type DonationsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where: DonationsWhereUniqueInput
+  }
+
+  /**
+   * Donations findFirst
+   */
+  export type DonationsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where?: DonationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Donations.
+     */
+    cursor?: DonationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Donations.
+     */
+    distinct?: DonationsScalarFieldEnum | DonationsScalarFieldEnum[]
+  }
+
+  /**
+   * Donations findFirstOrThrow
+   */
+  export type DonationsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where?: DonationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Donations.
+     */
+    cursor?: DonationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Donations.
+     */
+    distinct?: DonationsScalarFieldEnum | DonationsScalarFieldEnum[]
+  }
+
+  /**
+   * Donations findMany
+   */
+  export type DonationsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Donations to fetch.
+     */
+    where?: DonationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Donations to fetch.
+     */
+    orderBy?: DonationsOrderByWithRelationInput | DonationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Donations.
+     */
+    cursor?: DonationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Donations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Donations.
+     */
+    skip?: number
+    distinct?: DonationsScalarFieldEnum | DonationsScalarFieldEnum[]
+  }
+
+  /**
+   * Donations create
+   */
+  export type DonationsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Donations.
+     */
+    data: XOR<DonationsCreateInput, DonationsUncheckedCreateInput>
+  }
+
+  /**
+   * Donations createMany
+   */
+  export type DonationsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Donations.
+     */
+    data: DonationsCreateManyInput | DonationsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Donations createManyAndReturn
+   */
+  export type DonationsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Donations.
+     */
+    data: DonationsCreateManyInput | DonationsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Donations update
+   */
+  export type DonationsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Donations.
+     */
+    data: XOR<DonationsUpdateInput, DonationsUncheckedUpdateInput>
+    /**
+     * Choose, which Donations to update.
+     */
+    where: DonationsWhereUniqueInput
+  }
+
+  /**
+   * Donations updateMany
+   */
+  export type DonationsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Donations.
+     */
+    data: XOR<DonationsUpdateManyMutationInput, DonationsUncheckedUpdateManyInput>
+    /**
+     * Filter which Donations to update
+     */
+    where?: DonationsWhereInput
+    /**
+     * Limit how many Donations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Donations updateManyAndReturn
+   */
+  export type DonationsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * The data used to update Donations.
+     */
+    data: XOR<DonationsUpdateManyMutationInput, DonationsUncheckedUpdateManyInput>
+    /**
+     * Filter which Donations to update
+     */
+    where?: DonationsWhereInput
+    /**
+     * Limit how many Donations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Donations upsert
+   */
+  export type DonationsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Donations to update in case it exists.
+     */
+    where: DonationsWhereUniqueInput
+    /**
+     * In case the Donations found by the `where` argument doesn't exist, create a new Donations with this data.
+     */
+    create: XOR<DonationsCreateInput, DonationsUncheckedCreateInput>
+    /**
+     * In case the Donations was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DonationsUpdateInput, DonationsUncheckedUpdateInput>
+  }
+
+  /**
+   * Donations delete
+   */
+  export type DonationsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+    /**
+     * Filter which Donations to delete.
+     */
+    where: DonationsWhereUniqueInput
+  }
+
+  /**
+   * Donations deleteMany
+   */
+  export type DonationsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Donations to delete
+     */
+    where?: DonationsWhereInput
+    /**
+     * Limit how many Donations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Donations without action
+   */
+  export type DonationsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Donations
+     */
+    select?: DonationsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Donations
+     */
+    omit?: DonationsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DonationsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BankCard
+   */
+
+  export type AggregateBankCard = {
+    _count: BankCardCountAggregateOutputType | null
+    _avg: BankCardAvgAggregateOutputType | null
+    _sum: BankCardSumAggregateOutputType | null
+    _min: BankCardMinAggregateOutputType | null
+    _max: BankCardMaxAggregateOutputType | null
+  }
+
+  export type BankCardAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type BankCardSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type BankCardMinAggregateOutputType = {
+    id: number | null
+    country: string | null
+    firstName: string | null
+    lastName: string | null
+    cardNumber: string | null
+    expiryDate: Date | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BankCardMaxAggregateOutputType = {
+    id: number | null
+    country: string | null
+    firstName: string | null
+    lastName: string | null
+    cardNumber: string | null
+    expiryDate: Date | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BankCardCountAggregateOutputType = {
+    id: number
+    country: number
+    firstName: number
+    lastName: number
+    cardNumber: number
+    expiryDate: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BankCardAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type BankCardSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type BankCardMinAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BankCardMaxAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BankCardCountAggregateInputType = {
+    id?: true
+    country?: true
+    firstName?: true
+    lastName?: true
+    cardNumber?: true
+    expiryDate?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BankCardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BankCard to aggregate.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BankCards
+    **/
+    _count?: true | BankCardCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BankCardAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BankCardSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BankCardMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BankCardMaxAggregateInputType
+  }
+
+  export type GetBankCardAggregateType<T extends BankCardAggregateArgs> = {
+        [P in keyof T & keyof AggregateBankCard]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBankCard[P]>
+      : GetScalarType<T[P], AggregateBankCard[P]>
+  }
+
+
+
+
+  export type BankCardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BankCardWhereInput
+    orderBy?: BankCardOrderByWithAggregationInput | BankCardOrderByWithAggregationInput[]
+    by: BankCardScalarFieldEnum[] | BankCardScalarFieldEnum
+    having?: BankCardScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BankCardCountAggregateInputType | true
+    _avg?: BankCardAvgAggregateInputType
+    _sum?: BankCardSumAggregateInputType
+    _min?: BankCardMinAggregateInputType
+    _max?: BankCardMaxAggregateInputType
+  }
+
+  export type BankCardGroupByOutputType = {
+    id: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date
+    userId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: BankCardCountAggregateOutputType | null
+    _avg: BankCardAvgAggregateOutputType | null
+    _sum: BankCardSumAggregateOutputType | null
+    _min: BankCardMinAggregateOutputType | null
+    _max: BankCardMaxAggregateOutputType | null
+  }
+
+  type GetBankCardGroupByPayload<T extends BankCardGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BankCardGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BankCardGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BankCardGroupByOutputType[P]>
+            : GetScalarType<T[P], BankCardGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BankCardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bankCard"]>
+
+  export type BankCardSelectScalar = {
+    id?: boolean
+    country?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    cardNumber?: boolean
+    expiryDate?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BankCardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "country" | "firstName" | "lastName" | "cardNumber" | "expiryDate" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["bankCard"]>
+  export type BankCardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BankCardIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BankCardIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $BankCardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BankCard"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      country: string
+      firstName: string
+      lastName: string
+      cardNumber: string
+      expiryDate: Date
+      userId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["bankCard"]>
+    composites: {}
+  }
+
+  type BankCardGetPayload<S extends boolean | null | undefined | BankCardDefaultArgs> = $Result.GetResult<Prisma.$BankCardPayload, S>
+
+  type BankCardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BankCardFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BankCardCountAggregateInputType | true
+    }
+
+  export interface BankCardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BankCard'], meta: { name: 'BankCard' } }
+    /**
+     * Find zero or one BankCard that matches the filter.
+     * @param {BankCardFindUniqueArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BankCardFindUniqueArgs>(args: SelectSubset<T, BankCardFindUniqueArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BankCard that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BankCardFindUniqueOrThrowArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BankCardFindUniqueOrThrowArgs>(args: SelectSubset<T, BankCardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BankCard that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindFirstArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BankCardFindFirstArgs>(args?: SelectSubset<T, BankCardFindFirstArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BankCard that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindFirstOrThrowArgs} args - Arguments to find a BankCard
+     * @example
+     * // Get one BankCard
+     * const bankCard = await prisma.bankCard.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BankCardFindFirstOrThrowArgs>(args?: SelectSubset<T, BankCardFindFirstOrThrowArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BankCards that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BankCards
+     * const bankCards = await prisma.bankCard.findMany()
+     * 
+     * // Get first 10 BankCards
+     * const bankCards = await prisma.bankCard.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BankCardFindManyArgs>(args?: SelectSubset<T, BankCardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BankCard.
+     * @param {BankCardCreateArgs} args - Arguments to create a BankCard.
+     * @example
+     * // Create one BankCard
+     * const BankCard = await prisma.bankCard.create({
+     *   data: {
+     *     // ... data to create a BankCard
+     *   }
+     * })
+     * 
+     */
+    create<T extends BankCardCreateArgs>(args: SelectSubset<T, BankCardCreateArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BankCards.
+     * @param {BankCardCreateManyArgs} args - Arguments to create many BankCards.
+     * @example
+     * // Create many BankCards
+     * const bankCard = await prisma.bankCard.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BankCardCreateManyArgs>(args?: SelectSubset<T, BankCardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BankCards and returns the data saved in the database.
+     * @param {BankCardCreateManyAndReturnArgs} args - Arguments to create many BankCards.
+     * @example
+     * // Create many BankCards
+     * const bankCard = await prisma.bankCard.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BankCards and only return the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BankCardCreateManyAndReturnArgs>(args?: SelectSubset<T, BankCardCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BankCard.
+     * @param {BankCardDeleteArgs} args - Arguments to delete one BankCard.
+     * @example
+     * // Delete one BankCard
+     * const BankCard = await prisma.bankCard.delete({
+     *   where: {
+     *     // ... filter to delete one BankCard
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BankCardDeleteArgs>(args: SelectSubset<T, BankCardDeleteArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BankCard.
+     * @param {BankCardUpdateArgs} args - Arguments to update one BankCard.
+     * @example
+     * // Update one BankCard
+     * const bankCard = await prisma.bankCard.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BankCardUpdateArgs>(args: SelectSubset<T, BankCardUpdateArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BankCards.
+     * @param {BankCardDeleteManyArgs} args - Arguments to filter BankCards to delete.
+     * @example
+     * // Delete a few BankCards
+     * const { count } = await prisma.bankCard.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BankCardDeleteManyArgs>(args?: SelectSubset<T, BankCardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BankCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BankCards
+     * const bankCard = await prisma.bankCard.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BankCardUpdateManyArgs>(args: SelectSubset<T, BankCardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BankCards and returns the data updated in the database.
+     * @param {BankCardUpdateManyAndReturnArgs} args - Arguments to update many BankCards.
+     * @example
+     * // Update many BankCards
+     * const bankCard = await prisma.bankCard.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BankCards and only return the `id`
+     * const bankCardWithIdOnly = await prisma.bankCard.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BankCardUpdateManyAndReturnArgs>(args: SelectSubset<T, BankCardUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BankCard.
+     * @param {BankCardUpsertArgs} args - Arguments to update or create a BankCard.
+     * @example
+     * // Update or create a BankCard
+     * const bankCard = await prisma.bankCard.upsert({
+     *   create: {
+     *     // ... data to create a BankCard
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BankCard we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BankCardUpsertArgs>(args: SelectSubset<T, BankCardUpsertArgs<ExtArgs>>): Prisma__BankCardClient<$Result.GetResult<Prisma.$BankCardPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BankCards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardCountArgs} args - Arguments to filter BankCards to count.
+     * @example
+     * // Count the number of BankCards
+     * const count = await prisma.bankCard.count({
+     *   where: {
+     *     // ... the filter for the BankCards we want to count
+     *   }
+     * })
+    **/
+    count<T extends BankCardCountArgs>(
+      args?: Subset<T, BankCardCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BankCardCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BankCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BankCardAggregateArgs>(args: Subset<T, BankCardAggregateArgs>): Prisma.PrismaPromise<GetBankCardAggregateType<T>>
+
+    /**
+     * Group by BankCard.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BankCardGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BankCardGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BankCardGroupByArgs['orderBy'] }
+        : { orderBy?: BankCardGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BankCardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBankCardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BankCard model
+   */
+  readonly fields: BankCardFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BankCard.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BankCardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BankCard model
+   */
+  interface BankCardFieldRefs {
+    readonly id: FieldRef<"BankCard", 'Int'>
+    readonly country: FieldRef<"BankCard", 'String'>
+    readonly firstName: FieldRef<"BankCard", 'String'>
+    readonly lastName: FieldRef<"BankCard", 'String'>
+    readonly cardNumber: FieldRef<"BankCard", 'String'>
+    readonly expiryDate: FieldRef<"BankCard", 'DateTime'>
+    readonly userId: FieldRef<"BankCard", 'Int'>
+    readonly createdAt: FieldRef<"BankCard", 'DateTime'>
+    readonly updatedAt: FieldRef<"BankCard", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BankCard findUnique
+   */
+  export type BankCardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard findUniqueOrThrow
+   */
+  export type BankCardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard findFirst
+   */
+  export type BankCardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BankCards.
+     */
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard findFirstOrThrow
+   */
+  export type BankCardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter, which BankCard to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BankCards.
+     */
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard findMany
+   */
+  export type BankCardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter, which BankCards to fetch.
+     */
+    where?: BankCardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BankCards to fetch.
+     */
+    orderBy?: BankCardOrderByWithRelationInput | BankCardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BankCards.
+     */
+    cursor?: BankCardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BankCards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BankCards.
+     */
+    skip?: number
+    distinct?: BankCardScalarFieldEnum | BankCardScalarFieldEnum[]
+  }
+
+  /**
+   * BankCard create
+   */
+  export type BankCardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BankCard.
+     */
+    data: XOR<BankCardCreateInput, BankCardUncheckedCreateInput>
+  }
+
+  /**
+   * BankCard createMany
+   */
+  export type BankCardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BankCards.
+     */
+    data: BankCardCreateManyInput | BankCardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BankCard createManyAndReturn
+   */
+  export type BankCardCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data used to create many BankCards.
+     */
+    data: BankCardCreateManyInput | BankCardCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BankCard update
+   */
+  export type BankCardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BankCard.
+     */
+    data: XOR<BankCardUpdateInput, BankCardUncheckedUpdateInput>
+    /**
+     * Choose, which BankCard to update.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard updateMany
+   */
+  export type BankCardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BankCards.
+     */
+    data: XOR<BankCardUpdateManyMutationInput, BankCardUncheckedUpdateManyInput>
+    /**
+     * Filter which BankCards to update
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BankCard updateManyAndReturn
+   */
+  export type BankCardUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * The data used to update BankCards.
+     */
+    data: XOR<BankCardUpdateManyMutationInput, BankCardUncheckedUpdateManyInput>
+    /**
+     * Filter which BankCards to update
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BankCard upsert
+   */
+  export type BankCardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BankCard to update in case it exists.
+     */
+    where: BankCardWhereUniqueInput
+    /**
+     * In case the BankCard found by the `where` argument doesn't exist, create a new BankCard with this data.
+     */
+    create: XOR<BankCardCreateInput, BankCardUncheckedCreateInput>
+    /**
+     * In case the BankCard was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BankCardUpdateInput, BankCardUncheckedUpdateInput>
+  }
+
+  /**
+   * BankCard delete
+   */
+  export type BankCardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+    /**
+     * Filter which BankCard to delete.
+     */
+    where: BankCardWhereUniqueInput
+  }
+
+  /**
+   * BankCard deleteMany
+   */
+  export type BankCardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BankCards to delete
+     */
+    where?: BankCardWhereInput
+    /**
+     * Limit how many BankCards to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BankCard without action
+   */
+  export type BankCardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BankCard
+     */
+    select?: BankCardSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BankCard
+     */
+    omit?: BankCardOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BankCardInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Profile
+   */
+
+  export type AggregateProfile = {
+    _count: ProfileCountAggregateOutputType | null
+    _avg: ProfileAvgAggregateOutputType | null
+    _sum: ProfileSumAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
+  }
+
+  export type ProfileAvgAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileSumAggregateOutputType = {
+    id: number | null
+    userId: number | null
+  }
+
+  export type ProfileMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    about: string | null
+    avatarImage: string | null
+    socialMediaURL: string | null
+    backgroundImage: string | null
+    successMessage: string | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    about: string | null
+    avatarImage: string | null
+    socialMediaURL: string | null
+    backgroundImage: string | null
+    successMessage: string | null
+    userId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ProfileCountAggregateOutputType = {
+    id: number
+    name: number
+    about: number
+    avatarImage: number
+    socialMediaURL: number
+    backgroundImage: number
+    successMessage: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ProfileAvgAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileSumAggregateInputType = {
+    id?: true
+    userId?: true
+  }
+
+  export type ProfileMinAggregateInputType = {
+    id?: true
+    name?: true
+    about?: true
+    avatarImage?: true
+    socialMediaURL?: true
+    backgroundImage?: true
+    successMessage?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileMaxAggregateInputType = {
+    id?: true
+    name?: true
+    about?: true
+    avatarImage?: true
+    socialMediaURL?: true
+    backgroundImage?: true
+    successMessage?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ProfileCountAggregateInputType = {
+    id?: true
+    name?: true
+    about?: true
+    avatarImage?: true
+    socialMediaURL?: true
+    backgroundImage?: true
+    successMessage?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Profile to aggregate.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Profiles
+    **/
+    _count?: true | ProfileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfileAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfileSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfileMaxAggregateInputType
+  }
+
+  export type GetProfileAggregateType<T extends ProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfile[P]>
+      : GetScalarType<T[P], AggregateProfile[P]>
+  }
+
+
+
+
+  export type ProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileWhereInput
+    orderBy?: ProfileOrderByWithAggregationInput | ProfileOrderByWithAggregationInput[]
+    by: ProfileScalarFieldEnum[] | ProfileScalarFieldEnum
+    having?: ProfileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfileCountAggregateInputType | true
+    _avg?: ProfileAvgAggregateInputType
+    _sum?: ProfileSumAggregateInputType
+    _min?: ProfileMinAggregateInputType
+    _max?: ProfileMaxAggregateInputType
+  }
+
+  export type ProfileGroupByOutputType = {
+    id: number
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    userId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ProfileCountAggregateOutputType | null
+    _avg: ProfileAvgAggregateOutputType | null
+    _sum: ProfileSumAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
+  }
+
+  type GetProfileGroupByPayload<T extends ProfileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    about?: boolean
+    avatarImage?: boolean
+    socialMediaURL?: boolean
+    backgroundImage?: boolean
+    successMessage?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    about?: boolean
+    avatarImage?: boolean
+    socialMediaURL?: boolean
+    backgroundImage?: boolean
+    successMessage?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    about?: boolean
+    avatarImage?: boolean
+    socialMediaURL?: boolean
+    backgroundImage?: boolean
+    successMessage?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile"]>
+
+  export type ProfileSelectScalar = {
+    id?: boolean
+    name?: boolean
+    about?: boolean
+    avatarImage?: boolean
+    socialMediaURL?: boolean
+    backgroundImage?: boolean
+    successMessage?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "about" | "avatarImage" | "socialMediaURL" | "backgroundImage" | "successMessage" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+  export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ProfileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Profile"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      about: string
+      avatarImage: string
+      socialMediaURL: string
+      backgroundImage: string
+      successMessage: string
+      userId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["profile"]>
+    composites: {}
+  }
+
+  type ProfileGetPayload<S extends boolean | null | undefined | ProfileDefaultArgs> = $Result.GetResult<Prisma.$ProfilePayload, S>
+
+  type ProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileCountAggregateInputType | true
+    }
+
+  export interface ProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Profile'], meta: { name: 'Profile' } }
+    /**
+     * Find zero or one Profile that matches the filter.
+     * @param {ProfileFindUniqueArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfileFindUniqueArgs>(args: SelectSubset<T, ProfileFindUniqueArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Profile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfileFindUniqueOrThrowArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindFirstArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfileFindFirstArgs>(args?: SelectSubset<T, ProfileFindFirstArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindFirstOrThrowArgs} args - Arguments to find a Profile
+     * @example
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Profiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Profiles
+     * const profiles = await prisma.profile.findMany()
+     * 
+     * // Get first 10 Profiles
+     * const profiles = await prisma.profile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profileWithIdOnly = await prisma.profile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfileFindManyArgs>(args?: SelectSubset<T, ProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Profile.
+     * @param {ProfileCreateArgs} args - Arguments to create a Profile.
+     * @example
+     * // Create one Profile
+     * const Profile = await prisma.profile.create({
+     *   data: {
+     *     // ... data to create a Profile
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfileCreateArgs>(args: SelectSubset<T, ProfileCreateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Profiles.
+     * @param {ProfileCreateManyArgs} args - Arguments to create many Profiles.
+     * @example
+     * // Create many Profiles
+     * const profile = await prisma.profile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfileCreateManyArgs>(args?: SelectSubset<T, ProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Profiles and returns the data saved in the database.
+     * @param {ProfileCreateManyAndReturnArgs} args - Arguments to create many Profiles.
+     * @example
+     * // Create many Profiles
+     * const profile = await prisma.profile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Profile.
+     * @param {ProfileDeleteArgs} args - Arguments to delete one Profile.
+     * @example
+     * // Delete one Profile
+     * const Profile = await prisma.profile.delete({
+     *   where: {
+     *     // ... filter to delete one Profile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfileDeleteArgs>(args: SelectSubset<T, ProfileDeleteArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Profile.
+     * @param {ProfileUpdateArgs} args - Arguments to update one Profile.
+     * @example
+     * // Update one Profile
+     * const profile = await prisma.profile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfileUpdateArgs>(args: SelectSubset<T, ProfileUpdateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Profiles.
+     * @param {ProfileDeleteManyArgs} args - Arguments to filter Profiles to delete.
+     * @example
+     * // Delete a few Profiles
+     * const { count } = await prisma.profile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfileDeleteManyArgs>(args?: SelectSubset<T, ProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfileUpdateManyArgs>(args: SelectSubset<T, ProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profiles and returns the data updated in the database.
+     * @param {ProfileUpdateManyAndReturnArgs} args - Arguments to update many Profiles.
+     * @example
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Profile.
+     * @param {ProfileUpsertArgs} args - Arguments to update or create a Profile.
+     * @example
+     * // Update or create a Profile
+     * const profile = await prisma.profile.upsert({
+     *   create: {
+     *     // ... data to create a Profile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Profile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfileUpsertArgs>(args: SelectSubset<T, ProfileUpsertArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Profiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileCountArgs} args - Arguments to filter Profiles to count.
+     * @example
+     * // Count the number of Profiles
+     * const count = await prisma.profile.count({
+     *   where: {
+     *     // ... the filter for the Profiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfileCountArgs>(
+      args?: Subset<T, ProfileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Profile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfileAggregateArgs>(args: Subset<T, ProfileAggregateArgs>): Prisma.PrismaPromise<GetProfileAggregateType<T>>
+
+    /**
+     * Group by Profile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfileGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Profile model
+   */
+  readonly fields: ProfileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Profile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Profile model
+   */
+  interface ProfileFieldRefs {
+    readonly id: FieldRef<"Profile", 'Int'>
+    readonly name: FieldRef<"Profile", 'String'>
+    readonly about: FieldRef<"Profile", 'String'>
+    readonly avatarImage: FieldRef<"Profile", 'String'>
+    readonly socialMediaURL: FieldRef<"Profile", 'String'>
+    readonly backgroundImage: FieldRef<"Profile", 'String'>
+    readonly successMessage: FieldRef<"Profile", 'String'>
+    readonly userId: FieldRef<"Profile", 'Int'>
+    readonly createdAt: FieldRef<"Profile", 'DateTime'>
+    readonly updatedAt: FieldRef<"Profile", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Profile findUnique
+   */
+  export type ProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile findUniqueOrThrow
+   */
+  export type ProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile findFirst
+   */
+  export type ProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Profiles.
+     */
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile findFirstOrThrow
+   */
+  export type ProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profile to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Profiles.
+     */
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile findMany
+   */
+  export type ProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter, which Profiles to fetch.
+     */
+    where?: ProfileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Profiles to fetch.
+     */
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Profiles.
+     */
+    cursor?: ProfileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Profiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Profiles.
+     */
+    skip?: number
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
+  }
+
+  /**
+   * Profile create
+   */
+  export type ProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Profile.
+     */
+    data: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
+  }
+
+  /**
+   * Profile createMany
+   */
+  export type ProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Profiles.
+     */
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Profile createManyAndReturn
+   */
+  export type ProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * The data used to create many Profiles.
+     */
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Profile update
+   */
+  export type ProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Profile.
+     */
+    data: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
+    /**
+     * Choose, which Profile to update.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile updateMany
+   */
+  export type ProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Profiles.
+     */
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which Profiles to update
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Profile updateManyAndReturn
+   */
+  export type ProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * The data used to update Profiles.
+     */
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
+    /**
+     * Filter which Profiles to update
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Profile upsert
+   */
+  export type ProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Profile to update in case it exists.
+     */
+    where: ProfileWhereUniqueInput
+    /**
+     * In case the Profile found by the `where` argument doesn't exist, create a new Profile with this data.
+     */
+    create: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
+    /**
+     * In case the Profile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
+  }
+
+  /**
+   * Profile delete
+   */
+  export type ProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
+    /**
+     * Filter which Profile to delete.
+     */
+    where: ProfileWhereUniqueInput
+  }
+
+  /**
+   * Profile deleteMany
+   */
+  export type ProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Profiles to delete
+     */
+    where?: ProfileWhereInput
+    /**
+     * Limit how many Profiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Profile without action
+   */
+  export type ProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Profile
+     */
+    select?: ProfileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Profile
+     */
+    omit?: ProfileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfileInclude<ExtArgs> | null
   }
 
 
@@ -1903,10 +5850,57 @@ export namespace Prisma {
     id: 'id',
     email: 'email',
     username: 'username',
-    password: 'password'
+    password: 'password',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const DonationsScalarFieldEnum: {
+    id: 'id',
+    donorId: 'donorId',
+    recipientId: 'recipientId',
+    amount: 'amount',
+    specialMessage: 'specialMessage',
+    socialURLOrBuyMeACoffee: 'socialURLOrBuyMeACoffee',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DonationsScalarFieldEnum = (typeof DonationsScalarFieldEnum)[keyof typeof DonationsScalarFieldEnum]
+
+
+  export const BankCardScalarFieldEnum: {
+    id: 'id',
+    country: 'country',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    cardNumber: 'cardNumber',
+    expiryDate: 'expiryDate',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BankCardScalarFieldEnum = (typeof BankCardScalarFieldEnum)[keyof typeof BankCardScalarFieldEnum]
+
+
+  export const ProfileScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    about: 'about',
+    avatarImage: 'avatarImage',
+    socialMediaURL: 'socialMediaURL',
+    backgroundImage: 'backgroundImage',
+    successMessage: 'successMessage',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1923,6 +5917,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1959,6 +5961,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1983,6 +5999,12 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    receivedDonations?: DonationsListRelationFilter
+    sentDonations?: DonationsListRelationFilter
+    profile?: XOR<ProfileNullableScalarRelationFilter, ProfileWhereInput> | null
+    bankCard?: XOR<BankCardNullableScalarRelationFilter, BankCardWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -1990,6 +6012,12 @@ export namespace Prisma {
     email?: SortOrder
     username?: SortOrder
     password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    receivedDonations?: DonationsOrderByRelationAggregateInput
+    sentDonations?: DonationsOrderByRelationAggregateInput
+    profile?: ProfileOrderByWithRelationInput
+    bankCard?: BankCardOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -2000,6 +6028,12 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    receivedDonations?: DonationsListRelationFilter
+    sentDonations?: DonationsListRelationFilter
+    profile?: XOR<ProfileNullableScalarRelationFilter, ProfileWhereInput> | null
+    bankCard?: XOR<BankCardNullableScalarRelationFilter, BankCardWhereInput> | null
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -2007,6 +6041,8 @@ export namespace Prisma {
     email?: SortOrder
     username?: SortOrder
     password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -2022,12 +6058,254 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     username?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type DonationsWhereInput = {
+    AND?: DonationsWhereInput | DonationsWhereInput[]
+    OR?: DonationsWhereInput[]
+    NOT?: DonationsWhereInput | DonationsWhereInput[]
+    id?: IntFilter<"Donations"> | number
+    donorId?: IntFilter<"Donations"> | number
+    recipientId?: IntFilter<"Donations"> | number
+    amount?: IntFilter<"Donations"> | number
+    specialMessage?: StringNullableFilter<"Donations"> | string | null
+    socialURLOrBuyMeACoffee?: StringFilter<"Donations"> | string
+    createdAt?: DateTimeFilter<"Donations"> | Date | string
+    updatedAt?: DateTimeFilter<"Donations"> | Date | string
+    donor?: XOR<UserScalarRelationFilter, UserWhereInput>
+    recipient?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type DonationsOrderByWithRelationInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrderInput | SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    donor?: UserOrderByWithRelationInput
+    recipient?: UserOrderByWithRelationInput
+  }
+
+  export type DonationsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DonationsWhereInput | DonationsWhereInput[]
+    OR?: DonationsWhereInput[]
+    NOT?: DonationsWhereInput | DonationsWhereInput[]
+    donorId?: IntFilter<"Donations"> | number
+    recipientId?: IntFilter<"Donations"> | number
+    amount?: IntFilter<"Donations"> | number
+    specialMessage?: StringNullableFilter<"Donations"> | string | null
+    socialURLOrBuyMeACoffee?: StringFilter<"Donations"> | string
+    createdAt?: DateTimeFilter<"Donations"> | Date | string
+    updatedAt?: DateTimeFilter<"Donations"> | Date | string
+    donor?: XOR<UserScalarRelationFilter, UserWhereInput>
+    recipient?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type DonationsOrderByWithAggregationInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrderInput | SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DonationsCountOrderByAggregateInput
+    _avg?: DonationsAvgOrderByAggregateInput
+    _max?: DonationsMaxOrderByAggregateInput
+    _min?: DonationsMinOrderByAggregateInput
+    _sum?: DonationsSumOrderByAggregateInput
+  }
+
+  export type DonationsScalarWhereWithAggregatesInput = {
+    AND?: DonationsScalarWhereWithAggregatesInput | DonationsScalarWhereWithAggregatesInput[]
+    OR?: DonationsScalarWhereWithAggregatesInput[]
+    NOT?: DonationsScalarWhereWithAggregatesInput | DonationsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Donations"> | number
+    donorId?: IntWithAggregatesFilter<"Donations"> | number
+    recipientId?: IntWithAggregatesFilter<"Donations"> | number
+    amount?: IntWithAggregatesFilter<"Donations"> | number
+    specialMessage?: StringNullableWithAggregatesFilter<"Donations"> | string | null
+    socialURLOrBuyMeACoffee?: StringWithAggregatesFilter<"Donations"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Donations"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Donations"> | Date | string
+  }
+
+  export type BankCardWhereInput = {
+    AND?: BankCardWhereInput | BankCardWhereInput[]
+    OR?: BankCardWhereInput[]
+    NOT?: BankCardWhereInput | BankCardWhereInput[]
+    id?: IntFilter<"BankCard"> | number
+    country?: StringFilter<"BankCard"> | string
+    firstName?: StringFilter<"BankCard"> | string
+    lastName?: StringFilter<"BankCard"> | string
+    cardNumber?: StringFilter<"BankCard"> | string
+    expiryDate?: DateTimeFilter<"BankCard"> | Date | string
+    userId?: IntFilter<"BankCard"> | number
+    createdAt?: DateTimeFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeFilter<"BankCard"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type BankCardOrderByWithRelationInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type BankCardWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    userId?: number
+    AND?: BankCardWhereInput | BankCardWhereInput[]
+    OR?: BankCardWhereInput[]
+    NOT?: BankCardWhereInput | BankCardWhereInput[]
+    country?: StringFilter<"BankCard"> | string
+    firstName?: StringFilter<"BankCard"> | string
+    lastName?: StringFilter<"BankCard"> | string
+    cardNumber?: StringFilter<"BankCard"> | string
+    expiryDate?: DateTimeFilter<"BankCard"> | Date | string
+    createdAt?: DateTimeFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeFilter<"BankCard"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId">
+
+  export type BankCardOrderByWithAggregationInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BankCardCountOrderByAggregateInput
+    _avg?: BankCardAvgOrderByAggregateInput
+    _max?: BankCardMaxOrderByAggregateInput
+    _min?: BankCardMinOrderByAggregateInput
+    _sum?: BankCardSumOrderByAggregateInput
+  }
+
+  export type BankCardScalarWhereWithAggregatesInput = {
+    AND?: BankCardScalarWhereWithAggregatesInput | BankCardScalarWhereWithAggregatesInput[]
+    OR?: BankCardScalarWhereWithAggregatesInput[]
+    NOT?: BankCardScalarWhereWithAggregatesInput | BankCardScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BankCard"> | number
+    country?: StringWithAggregatesFilter<"BankCard"> | string
+    firstName?: StringWithAggregatesFilter<"BankCard"> | string
+    lastName?: StringWithAggregatesFilter<"BankCard"> | string
+    cardNumber?: StringWithAggregatesFilter<"BankCard"> | string
+    expiryDate?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+    userId?: IntWithAggregatesFilter<"BankCard"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BankCard"> | Date | string
+  }
+
+  export type ProfileWhereInput = {
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    id?: IntFilter<"Profile"> | number
+    name?: StringFilter<"Profile"> | string
+    about?: StringFilter<"Profile"> | string
+    avatarImage?: StringFilter<"Profile"> | string
+    socialMediaURL?: StringFilter<"Profile"> | string
+    backgroundImage?: StringFilter<"Profile"> | string
+    successMessage?: StringFilter<"Profile"> | string
+    userId?: IntFilter<"Profile"> | number
+    createdAt?: DateTimeFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeFilter<"Profile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type ProfileOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    about?: SortOrder
+    avatarImage?: SortOrder
+    socialMediaURL?: SortOrder
+    backgroundImage?: SortOrder
+    successMessage?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    userId?: number
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    name?: StringFilter<"Profile"> | string
+    about?: StringFilter<"Profile"> | string
+    avatarImage?: StringFilter<"Profile"> | string
+    socialMediaURL?: StringFilter<"Profile"> | string
+    backgroundImage?: StringFilter<"Profile"> | string
+    successMessage?: StringFilter<"Profile"> | string
+    createdAt?: DateTimeFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeFilter<"Profile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId">
+
+  export type ProfileOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    about?: SortOrder
+    avatarImage?: SortOrder
+    socialMediaURL?: SortOrder
+    backgroundImage?: SortOrder
+    successMessage?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ProfileCountOrderByAggregateInput
+    _avg?: ProfileAvgOrderByAggregateInput
+    _max?: ProfileMaxOrderByAggregateInput
+    _min?: ProfileMinOrderByAggregateInput
+    _sum?: ProfileSumOrderByAggregateInput
+  }
+
+  export type ProfileScalarWhereWithAggregatesInput = {
+    AND?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    OR?: ProfileScalarWhereWithAggregatesInput[]
+    NOT?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Profile"> | number
+    name?: StringWithAggregatesFilter<"Profile"> | string
+    about?: StringWithAggregatesFilter<"Profile"> | string
+    avatarImage?: StringWithAggregatesFilter<"Profile"> | string
+    socialMediaURL?: StringWithAggregatesFilter<"Profile"> | string
+    backgroundImage?: StringWithAggregatesFilter<"Profile"> | string
+    successMessage?: StringWithAggregatesFilter<"Profile"> | string
+    userId?: IntWithAggregatesFilter<"Profile"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
   }
 
   export type UserCreateInput = {
     email: string
     username: string
     password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsCreateNestedManyWithoutDonorInput
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    bankCard?: BankCardCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -2035,12 +6313,24 @@ export namespace Prisma {
     email: string
     username: string
     password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -2048,6 +6338,12 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUncheckedUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUncheckedUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -2055,12 +6351,16 @@ export namespace Prisma {
     email: string
     username: string
     password: string
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -2068,6 +6368,247 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsCreateInput = {
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    donor: UserCreateNestedOneWithoutSentDonationsInput
+    recipient: UserCreateNestedOneWithoutReceivedDonationsInput
+  }
+
+  export type DonationsUncheckedCreateInput = {
+    id?: number
+    donorId: number
+    recipientId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsUpdateInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    donor?: UserUpdateOneRequiredWithoutSentDonationsNestedInput
+    recipient?: UserUpdateOneRequiredWithoutReceivedDonationsNestedInput
+  }
+
+  export type DonationsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    donorId?: IntFieldUpdateOperationsInput | number
+    recipientId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsCreateManyInput = {
+    id?: number
+    donorId: number
+    recipientId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsUpdateManyMutationInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    donorId?: IntFieldUpdateOperationsInput | number
+    recipientId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardCreateInput = {
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutBankCardInput
+  }
+
+  export type BankCardUncheckedCreateInput = {
+    id?: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUpdateInput = {
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutBankCardNestedInput
+  }
+
+  export type BankCardUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardCreateManyInput = {
+    id?: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUpdateManyMutationInput = {
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileCreateInput = {
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutProfileInput
+  }
+
+  export type ProfileUncheckedCreateInput = {
+    id?: number
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutProfileNestedInput
+  }
+
+  export type ProfileUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileCreateManyInput = {
+    id?: number
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    userId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    userId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2096,11 +6637,44 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type DonationsListRelationFilter = {
+    every?: DonationsWhereInput
+    some?: DonationsWhereInput
+    none?: DonationsWhereInput
+  }
+
+  export type ProfileNullableScalarRelationFilter = {
+    is?: ProfileWhereInput | null
+    isNot?: ProfileWhereInput | null
+  }
+
+  export type BankCardNullableScalarRelationFilter = {
+    is?: BankCardWhereInput | null
+    isNot?: BankCardWhereInput | null
+  }
+
+  export type DonationsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     username?: SortOrder
     password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -2112,6 +6686,8 @@ export namespace Prisma {
     email?: SortOrder
     username?: SortOrder
     password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -2119,6 +6695,8 @@ export namespace Prisma {
     email?: SortOrder
     username?: SortOrder
     password?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -2159,8 +6737,311 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type DonationsCountOrderByAggregateInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type DonationsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationsMinOrderByAggregateInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+    specialMessage?: SortOrder
+    socialURLOrBuyMeACoffee?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DonationsSumOrderByAggregateInput = {
+    id?: SortOrder
+    donorId?: SortOrder
+    recipientId?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BankCardCountOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type BankCardMaxOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardMinOrderByAggregateInput = {
+    id?: SortOrder
+    country?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    cardNumber?: SortOrder
+    expiryDate?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BankCardSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    about?: SortOrder
+    avatarImage?: SortOrder
+    socialMediaURL?: SortOrder
+    backgroundImage?: SortOrder
+    successMessage?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileAvgOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type ProfileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    about?: SortOrder
+    avatarImage?: SortOrder
+    socialMediaURL?: SortOrder
+    backgroundImage?: SortOrder
+    successMessage?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    about?: SortOrder
+    avatarImage?: SortOrder
+    socialMediaURL?: SortOrder
+    backgroundImage?: SortOrder
+    successMessage?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ProfileSumOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DonationsCreateNestedManyWithoutRecipientInput = {
+    create?: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput> | DonationsCreateWithoutRecipientInput[] | DonationsUncheckedCreateWithoutRecipientInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutRecipientInput | DonationsCreateOrConnectWithoutRecipientInput[]
+    createMany?: DonationsCreateManyRecipientInputEnvelope
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+  }
+
+  export type DonationsCreateNestedManyWithoutDonorInput = {
+    create?: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput> | DonationsCreateWithoutDonorInput[] | DonationsUncheckedCreateWithoutDonorInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutDonorInput | DonationsCreateOrConnectWithoutDonorInput[]
+    createMany?: DonationsCreateManyDonorInputEnvelope
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+  }
+
+  export type ProfileCreateNestedOneWithoutUserInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    connect?: ProfileWhereUniqueInput
+  }
+
+  export type BankCardCreateNestedOneWithoutUserInput = {
+    create?: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+    connectOrCreate?: BankCardCreateOrConnectWithoutUserInput
+    connect?: BankCardWhereUniqueInput
+  }
+
+  export type DonationsUncheckedCreateNestedManyWithoutRecipientInput = {
+    create?: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput> | DonationsCreateWithoutRecipientInput[] | DonationsUncheckedCreateWithoutRecipientInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutRecipientInput | DonationsCreateOrConnectWithoutRecipientInput[]
+    createMany?: DonationsCreateManyRecipientInputEnvelope
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+  }
+
+  export type DonationsUncheckedCreateNestedManyWithoutDonorInput = {
+    create?: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput> | DonationsCreateWithoutDonorInput[] | DonationsUncheckedCreateWithoutDonorInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutDonorInput | DonationsCreateOrConnectWithoutDonorInput[]
+    createMany?: DonationsCreateManyDonorInputEnvelope
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+  }
+
+  export type ProfileUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    connect?: ProfileWhereUniqueInput
+  }
+
+  export type BankCardUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+    connectOrCreate?: BankCardCreateOrConnectWithoutUserInput
+    connect?: BankCardWhereUniqueInput
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type DonationsUpdateManyWithoutRecipientNestedInput = {
+    create?: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput> | DonationsCreateWithoutRecipientInput[] | DonationsUncheckedCreateWithoutRecipientInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutRecipientInput | DonationsCreateOrConnectWithoutRecipientInput[]
+    upsert?: DonationsUpsertWithWhereUniqueWithoutRecipientInput | DonationsUpsertWithWhereUniqueWithoutRecipientInput[]
+    createMany?: DonationsCreateManyRecipientInputEnvelope
+    set?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    disconnect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    delete?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    update?: DonationsUpdateWithWhereUniqueWithoutRecipientInput | DonationsUpdateWithWhereUniqueWithoutRecipientInput[]
+    updateMany?: DonationsUpdateManyWithWhereWithoutRecipientInput | DonationsUpdateManyWithWhereWithoutRecipientInput[]
+    deleteMany?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+  }
+
+  export type DonationsUpdateManyWithoutDonorNestedInput = {
+    create?: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput> | DonationsCreateWithoutDonorInput[] | DonationsUncheckedCreateWithoutDonorInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutDonorInput | DonationsCreateOrConnectWithoutDonorInput[]
+    upsert?: DonationsUpsertWithWhereUniqueWithoutDonorInput | DonationsUpsertWithWhereUniqueWithoutDonorInput[]
+    createMany?: DonationsCreateManyDonorInputEnvelope
+    set?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    disconnect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    delete?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    update?: DonationsUpdateWithWhereUniqueWithoutDonorInput | DonationsUpdateWithWhereUniqueWithoutDonorInput[]
+    updateMany?: DonationsUpdateManyWithWhereWithoutDonorInput | DonationsUpdateManyWithWhereWithoutDonorInput[]
+    deleteMany?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+  }
+
+  export type ProfileUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    upsert?: ProfileUpsertWithoutUserInput
+    disconnect?: ProfileWhereInput | boolean
+    delete?: ProfileWhereInput | boolean
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutUserInput, ProfileUpdateWithoutUserInput>, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BankCardUpdateOneWithoutUserNestedInput = {
+    create?: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+    connectOrCreate?: BankCardCreateOrConnectWithoutUserInput
+    upsert?: BankCardUpsertWithoutUserInput
+    disconnect?: BankCardWhereInput | boolean
+    delete?: BankCardWhereInput | boolean
+    connect?: BankCardWhereUniqueInput
+    update?: XOR<XOR<BankCardUpdateToOneWithWhereWithoutUserInput, BankCardUpdateWithoutUserInput>, BankCardUncheckedUpdateWithoutUserInput>
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2169,6 +7050,114 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type DonationsUncheckedUpdateManyWithoutRecipientNestedInput = {
+    create?: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput> | DonationsCreateWithoutRecipientInput[] | DonationsUncheckedCreateWithoutRecipientInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutRecipientInput | DonationsCreateOrConnectWithoutRecipientInput[]
+    upsert?: DonationsUpsertWithWhereUniqueWithoutRecipientInput | DonationsUpsertWithWhereUniqueWithoutRecipientInput[]
+    createMany?: DonationsCreateManyRecipientInputEnvelope
+    set?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    disconnect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    delete?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    update?: DonationsUpdateWithWhereUniqueWithoutRecipientInput | DonationsUpdateWithWhereUniqueWithoutRecipientInput[]
+    updateMany?: DonationsUpdateManyWithWhereWithoutRecipientInput | DonationsUpdateManyWithWhereWithoutRecipientInput[]
+    deleteMany?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+  }
+
+  export type DonationsUncheckedUpdateManyWithoutDonorNestedInput = {
+    create?: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput> | DonationsCreateWithoutDonorInput[] | DonationsUncheckedCreateWithoutDonorInput[]
+    connectOrCreate?: DonationsCreateOrConnectWithoutDonorInput | DonationsCreateOrConnectWithoutDonorInput[]
+    upsert?: DonationsUpsertWithWhereUniqueWithoutDonorInput | DonationsUpsertWithWhereUniqueWithoutDonorInput[]
+    createMany?: DonationsCreateManyDonorInputEnvelope
+    set?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    disconnect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    delete?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    connect?: DonationsWhereUniqueInput | DonationsWhereUniqueInput[]
+    update?: DonationsUpdateWithWhereUniqueWithoutDonorInput | DonationsUpdateWithWhereUniqueWithoutDonorInput[]
+    updateMany?: DonationsUpdateManyWithWhereWithoutDonorInput | DonationsUpdateManyWithWhereWithoutDonorInput[]
+    deleteMany?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+  }
+
+  export type ProfileUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutUserInput
+    upsert?: ProfileUpsertWithoutUserInput
+    disconnect?: ProfileWhereInput | boolean
+    delete?: ProfileWhereInput | boolean
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutUserInput, ProfileUpdateWithoutUserInput>, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BankCardUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+    connectOrCreate?: BankCardCreateOrConnectWithoutUserInput
+    upsert?: BankCardUpsertWithoutUserInput
+    disconnect?: BankCardWhereInput | boolean
+    delete?: BankCardWhereInput | boolean
+    connect?: BankCardWhereUniqueInput
+    update?: XOR<XOR<BankCardUpdateToOneWithWhereWithoutUserInput, BankCardUpdateWithoutUserInput>, BankCardUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UserCreateNestedOneWithoutSentDonationsInput = {
+    create?: XOR<UserCreateWithoutSentDonationsInput, UserUncheckedCreateWithoutSentDonationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSentDonationsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutReceivedDonationsInput = {
+    create?: XOR<UserCreateWithoutReceivedDonationsInput, UserUncheckedCreateWithoutReceivedDonationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReceivedDonationsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type UserUpdateOneRequiredWithoutSentDonationsNestedInput = {
+    create?: XOR<UserCreateWithoutSentDonationsInput, UserUncheckedCreateWithoutSentDonationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSentDonationsInput
+    upsert?: UserUpsertWithoutSentDonationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSentDonationsInput, UserUpdateWithoutSentDonationsInput>, UserUncheckedUpdateWithoutSentDonationsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutReceivedDonationsNestedInput = {
+    create?: XOR<UserCreateWithoutReceivedDonationsInput, UserUncheckedCreateWithoutReceivedDonationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutReceivedDonationsInput
+    upsert?: UserUpsertWithoutReceivedDonationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReceivedDonationsInput, UserUpdateWithoutReceivedDonationsInput>, UserUncheckedUpdateWithoutReceivedDonationsInput>
+  }
+
+  export type UserCreateNestedOneWithoutBankCardInput = {
+    create?: XOR<UserCreateWithoutBankCardInput, UserUncheckedCreateWithoutBankCardInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBankCardInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutBankCardNestedInput = {
+    create?: XOR<UserCreateWithoutBankCardInput, UserUncheckedCreateWithoutBankCardInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBankCardInput
+    upsert?: UserUpsertWithoutBankCardInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBankCardInput, UserUpdateWithoutBankCardInput>, UserUncheckedUpdateWithoutBankCardInput>
+  }
+
+  export type UserCreateNestedOneWithoutProfileInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutProfileNestedInput = {
+    create?: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    connectOrCreate?: UserCreateOrConnectWithoutProfileInput
+    upsert?: UserUpsertWithoutProfileInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProfileInput, UserUpdateWithoutProfileInput>, UserUncheckedUpdateWithoutProfileInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2194,6 +7183,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2238,6 +7238,612 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DonationsCreateWithoutRecipientInput = {
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    donor: UserCreateNestedOneWithoutSentDonationsInput
+  }
+
+  export type DonationsUncheckedCreateWithoutRecipientInput = {
+    id?: number
+    donorId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsCreateOrConnectWithoutRecipientInput = {
+    where: DonationsWhereUniqueInput
+    create: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput>
+  }
+
+  export type DonationsCreateManyRecipientInputEnvelope = {
+    data: DonationsCreateManyRecipientInput | DonationsCreateManyRecipientInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DonationsCreateWithoutDonorInput = {
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    recipient: UserCreateNestedOneWithoutReceivedDonationsInput
+  }
+
+  export type DonationsUncheckedCreateWithoutDonorInput = {
+    id?: number
+    recipientId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsCreateOrConnectWithoutDonorInput = {
+    where: DonationsWhereUniqueInput
+    create: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput>
+  }
+
+  export type DonationsCreateManyDonorInputEnvelope = {
+    data: DonationsCreateManyDonorInput | DonationsCreateManyDonorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfileCreateWithoutUserInput = {
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileUncheckedCreateWithoutUserInput = {
+    id?: number
+    name: string
+    about: string
+    avatarImage: string
+    socialMediaURL: string
+    backgroundImage: string
+    successMessage: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ProfileCreateOrConnectWithoutUserInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+  }
+
+  export type BankCardCreateWithoutUserInput = {
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardUncheckedCreateWithoutUserInput = {
+    id?: number
+    country: string
+    firstName: string
+    lastName: string
+    cardNumber: string
+    expiryDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BankCardCreateOrConnectWithoutUserInput = {
+    where: BankCardWhereUniqueInput
+    create: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+  }
+
+  export type DonationsUpsertWithWhereUniqueWithoutRecipientInput = {
+    where: DonationsWhereUniqueInput
+    update: XOR<DonationsUpdateWithoutRecipientInput, DonationsUncheckedUpdateWithoutRecipientInput>
+    create: XOR<DonationsCreateWithoutRecipientInput, DonationsUncheckedCreateWithoutRecipientInput>
+  }
+
+  export type DonationsUpdateWithWhereUniqueWithoutRecipientInput = {
+    where: DonationsWhereUniqueInput
+    data: XOR<DonationsUpdateWithoutRecipientInput, DonationsUncheckedUpdateWithoutRecipientInput>
+  }
+
+  export type DonationsUpdateManyWithWhereWithoutRecipientInput = {
+    where: DonationsScalarWhereInput
+    data: XOR<DonationsUpdateManyMutationInput, DonationsUncheckedUpdateManyWithoutRecipientInput>
+  }
+
+  export type DonationsScalarWhereInput = {
+    AND?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+    OR?: DonationsScalarWhereInput[]
+    NOT?: DonationsScalarWhereInput | DonationsScalarWhereInput[]
+    id?: IntFilter<"Donations"> | number
+    donorId?: IntFilter<"Donations"> | number
+    recipientId?: IntFilter<"Donations"> | number
+    amount?: IntFilter<"Donations"> | number
+    specialMessage?: StringNullableFilter<"Donations"> | string | null
+    socialURLOrBuyMeACoffee?: StringFilter<"Donations"> | string
+    createdAt?: DateTimeFilter<"Donations"> | Date | string
+    updatedAt?: DateTimeFilter<"Donations"> | Date | string
+  }
+
+  export type DonationsUpsertWithWhereUniqueWithoutDonorInput = {
+    where: DonationsWhereUniqueInput
+    update: XOR<DonationsUpdateWithoutDonorInput, DonationsUncheckedUpdateWithoutDonorInput>
+    create: XOR<DonationsCreateWithoutDonorInput, DonationsUncheckedCreateWithoutDonorInput>
+  }
+
+  export type DonationsUpdateWithWhereUniqueWithoutDonorInput = {
+    where: DonationsWhereUniqueInput
+    data: XOR<DonationsUpdateWithoutDonorInput, DonationsUncheckedUpdateWithoutDonorInput>
+  }
+
+  export type DonationsUpdateManyWithWhereWithoutDonorInput = {
+    where: DonationsScalarWhereInput
+    data: XOR<DonationsUpdateManyMutationInput, DonationsUncheckedUpdateManyWithoutDonorInput>
+  }
+
+  export type ProfileUpsertWithoutUserInput = {
+    update: XOR<ProfileUpdateWithoutUserInput, ProfileUncheckedUpdateWithoutUserInput>
+    create: XOR<ProfileCreateWithoutUserInput, ProfileUncheckedCreateWithoutUserInput>
+    where?: ProfileWhereInput
+  }
+
+  export type ProfileUpdateToOneWithWhereWithoutUserInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutUserInput, ProfileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ProfileUpdateWithoutUserInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfileUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    about?: StringFieldUpdateOperationsInput | string
+    avatarImage?: StringFieldUpdateOperationsInput | string
+    socialMediaURL?: StringFieldUpdateOperationsInput | string
+    backgroundImage?: StringFieldUpdateOperationsInput | string
+    successMessage?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardUpsertWithoutUserInput = {
+    update: XOR<BankCardUpdateWithoutUserInput, BankCardUncheckedUpdateWithoutUserInput>
+    create: XOR<BankCardCreateWithoutUserInput, BankCardUncheckedCreateWithoutUserInput>
+    where?: BankCardWhereInput
+  }
+
+  export type BankCardUpdateToOneWithWhereWithoutUserInput = {
+    where?: BankCardWhereInput
+    data: XOR<BankCardUpdateWithoutUserInput, BankCardUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BankCardUpdateWithoutUserInput = {
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BankCardUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    country?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    cardNumber?: StringFieldUpdateOperationsInput | string
+    expiryDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserCreateWithoutSentDonationsInput = {
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    bankCard?: BankCardCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSentDonationsInput = {
+    id?: number
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSentDonationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSentDonationsInput, UserUncheckedCreateWithoutSentDonationsInput>
+  }
+
+  export type UserCreateWithoutReceivedDonationsInput = {
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    sentDonations?: DonationsCreateNestedManyWithoutDonorInput
+    profile?: ProfileCreateNestedOneWithoutUserInput
+    bankCard?: BankCardCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutReceivedDonationsInput = {
+    id?: number
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+    bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutReceivedDonationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutReceivedDonationsInput, UserUncheckedCreateWithoutReceivedDonationsInput>
+  }
+
+  export type UserUpsertWithoutSentDonationsInput = {
+    update: XOR<UserUpdateWithoutSentDonationsInput, UserUncheckedUpdateWithoutSentDonationsInput>
+    create: XOR<UserCreateWithoutSentDonationsInput, UserUncheckedCreateWithoutSentDonationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSentDonationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSentDonationsInput, UserUncheckedUpdateWithoutSentDonationsInput>
+  }
+
+  export type UserUpdateWithoutSentDonationsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUpdateManyWithoutRecipientNestedInput
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSentDonationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUncheckedUpdateManyWithoutRecipientNestedInput
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUpsertWithoutReceivedDonationsInput = {
+    update: XOR<UserUpdateWithoutReceivedDonationsInput, UserUncheckedUpdateWithoutReceivedDonationsInput>
+    create: XOR<UserCreateWithoutReceivedDonationsInput, UserUncheckedCreateWithoutReceivedDonationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutReceivedDonationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutReceivedDonationsInput, UserUncheckedUpdateWithoutReceivedDonationsInput>
+  }
+
+  export type UserUpdateWithoutReceivedDonationsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sentDonations?: DonationsUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutReceivedDonationsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sentDonations?: DonationsUncheckedUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+    bankCard?: BankCardUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutBankCardInput = {
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsCreateNestedManyWithoutDonorInput
+    profile?: ProfileCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutBankCardInput = {
+    id?: number
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
+    profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutBankCardInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBankCardInput, UserUncheckedCreateWithoutBankCardInput>
+  }
+
+  export type UserUpsertWithoutBankCardInput = {
+    update: XOR<UserUpdateWithoutBankCardInput, UserUncheckedUpdateWithoutBankCardInput>
+    create: XOR<UserCreateWithoutBankCardInput, UserUncheckedCreateWithoutBankCardInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBankCardInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBankCardInput, UserUncheckedUpdateWithoutBankCardInput>
+  }
+
+  export type UserUpdateWithoutBankCardInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBankCardInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUncheckedUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUncheckedUpdateManyWithoutDonorNestedInput
+    profile?: ProfileUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutProfileInput = {
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsCreateNestedManyWithoutDonorInput
+    bankCard?: BankCardCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutProfileInput = {
+    id?: number
+    email: string
+    username: string
+    password: string
+    createdAt: Date | string
+    updatedAt: Date | string
+    receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
+    sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
+    bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutProfileInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+  }
+
+  export type UserUpsertWithoutProfileInput = {
+    update: XOR<UserUpdateWithoutProfileInput, UserUncheckedUpdateWithoutProfileInput>
+    create: XOR<UserCreateWithoutProfileInput, UserUncheckedCreateWithoutProfileInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutProfileInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutProfileInput, UserUncheckedUpdateWithoutProfileInput>
+  }
+
+  export type UserUpdateWithoutProfileInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUpdateManyWithoutDonorNestedInput
+    bankCard?: BankCardUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutProfileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    receivedDonations?: DonationsUncheckedUpdateManyWithoutRecipientNestedInput
+    sentDonations?: DonationsUncheckedUpdateManyWithoutDonorNestedInput
+    bankCard?: BankCardUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type DonationsCreateManyRecipientInput = {
+    id?: number
+    donorId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsCreateManyDonorInput = {
+    id?: number
+    recipientId: number
+    amount: number
+    specialMessage?: string | null
+    socialURLOrBuyMeACoffee: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DonationsUpdateWithoutRecipientInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    donor?: UserUpdateOneRequiredWithoutSentDonationsNestedInput
+  }
+
+  export type DonationsUncheckedUpdateWithoutRecipientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    donorId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsUncheckedUpdateManyWithoutRecipientInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    donorId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsUpdateWithoutDonorInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    recipient?: UserUpdateOneRequiredWithoutReceivedDonationsNestedInput
+  }
+
+  export type DonationsUncheckedUpdateWithoutDonorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    recipientId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DonationsUncheckedUpdateManyWithoutDonorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    recipientId?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    specialMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    socialURLOrBuyMeACoffee?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
