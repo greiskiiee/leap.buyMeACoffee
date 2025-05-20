@@ -7499,6 +7499,7 @@ export namespace Prisma {
     data: XOR<BankCardUpdateWithoutUserInput, BankCardUncheckedUpdateWithoutUserInput>
   }
 
+
   export type BankCardUpdateWithoutUserInput = {
     country?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
@@ -7508,6 +7509,16 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    email?: string
+    username?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    password?: StringFilter<"User"> | string
+  }, "id" | "email" | "username">
+
 
   export type BankCardUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
