@@ -256,8 +256,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -6023,10 +6023,10 @@ export namespace Prisma {
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
+    username?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -6034,7 +6034,7 @@ export namespace Prisma {
     sentDonations?: DonationsListRelationFilter
     profile?: XOR<ProfileNullableScalarRelationFilter, ProfileWhereInput> | null
     bankCard?: XOR<BankCardNullableScalarRelationFilter, BankCardWhereInput> | null
-  }, "id" | "email">
+  }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -6300,8 +6300,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsCreateNestedManyWithoutDonorInput
     profile?: ProfileCreateNestedOneWithoutUserInput
@@ -6313,8 +6313,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
@@ -6351,8 +6351,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -7499,7 +7499,6 @@ export namespace Prisma {
     data: XOR<BankCardUpdateWithoutUserInput, BankCardUncheckedUpdateWithoutUserInput>
   }
 
-
   export type BankCardUpdateWithoutUserInput = {
     country?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
@@ -7509,16 +7508,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
-  export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    email?: string
-    username?: string
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    password?: StringFilter<"User"> | string
-  }, "id" | "email" | "username">
-
 
   export type BankCardUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
@@ -7535,8 +7524,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
     profile?: ProfileCreateNestedOneWithoutUserInput
     bankCard?: BankCardCreateNestedOneWithoutUserInput
@@ -7547,8 +7536,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
     bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
@@ -7563,8 +7552,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     sentDonations?: DonationsCreateNestedManyWithoutDonorInput
     profile?: ProfileCreateNestedOneWithoutUserInput
     bankCard?: BankCardCreateNestedOneWithoutUserInput
@@ -7575,8 +7564,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
     bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput
@@ -7659,8 +7648,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsCreateNestedManyWithoutDonorInput
     profile?: ProfileCreateNestedOneWithoutUserInput
@@ -7671,8 +7660,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
     profile?: ProfileUncheckedCreateNestedOneWithoutUserInput
@@ -7721,8 +7710,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsCreateNestedManyWithoutDonorInput
     bankCard?: BankCardCreateNestedOneWithoutUserInput
@@ -7733,8 +7722,8 @@ export namespace Prisma {
     email: string
     username: string
     password: string
-    createdAt: Date | string
-    updatedAt: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     receivedDonations?: DonationsUncheckedCreateNestedManyWithoutRecipientInput
     sentDonations?: DonationsUncheckedCreateNestedManyWithoutDonorInput
     bankCard?: BankCardUncheckedCreateNestedOneWithoutUserInput

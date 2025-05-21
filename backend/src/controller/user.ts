@@ -12,8 +12,6 @@ export const createUser = async (req: Request, res: Response) => {
         email: email,
         username: username,
         password: hashedPass,
-        createdAt: Date.now().toString(),
-        updatedAt: Date.now().toString(),
       },
     });
 
