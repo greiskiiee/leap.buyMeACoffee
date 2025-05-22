@@ -1,4 +1,5 @@
 import { Menu } from "@/components/Menu";
+import { Navigation } from "@/components/Navigation";
 import { RecentTransactions } from "@/components/RecentTransactions";
 import { User } from "@/components/User";
 import { ChevronDown, Coffee } from "lucide-react";
@@ -6,27 +7,7 @@ import { ChevronDown, Coffee } from "lucide-react";
 export default function Home() {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center absolute">
-      <div className="flex w-full px-4 py-2 justify-between items-center">
-        <div className="flex justify-center items-center gap-2 absolute top-[32px] left-[80px]">
-          <Coffee color="#09090B" size={16} strokeWidth={3} />
-          <p className="text-[#09090B] font-[700] text-[16px] inter">
-            Buy Me Coffee
-          </p>
-        </div>
-        <div className="w-[168px] flex justify-center items-center gap-4 absolute top-[32px] right-[80px]">
-          <div className="w-[40px] h-[40px] flex justify-center items-center">
-            <img
-              src="profile.jpg"
-              alt="profile img"
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
-          <p className="w-fit inter font-[500] text-[14px] text-[#09090B] min-w-[83px]">
-            username
-          </p>
-          <ChevronDown color="#09090B" size={16} />
-        </div>
-      </div>
+      <Navigation />
 
       <Menu />
       <div className="w-[955px] h-fit flex absolute top-[130px] left-[405px]">
