@@ -13,7 +13,6 @@ export default function Home() {
       <div className="w-[955px] h-fit flex absolute top-[130px] left-[405px]">
         <div className="w-[955px] h-fit flex flex-col gap-8 px-6">
           <User />
-          <RecentTransactions />
         </div>
       </div>
     </div>

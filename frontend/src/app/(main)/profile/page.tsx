@@ -3,6 +3,7 @@ import CreateProfile from "@/app/(auth)/createprofile/page";
 import { CreatorInfo } from "@/components/CreatorInfo";
 import { Menu } from "@/components/Menu";
 import { Navigation } from "@/components/Navigation";
+import { RecentSupporters } from "@/components/RecentSupporters";
 import { Button } from "@/components/ui/button";
 import { Camera, ChevronDown, Coffee } from "lucide-react";
 import React, { useState } from "react";
@@ -19,8 +20,9 @@ export default function DonationCreator() {
           </Button>
         </div>
 
-        <div className="absolute z-20 bg-[#Fff] top-[269px] left-[80px] rounded-lg">
+        <div className="flex flex-col gap-5 absolute z-20 bg-[#Fff] top-[269px] left-[80px] rounded-lg">
           <CreatorInfo />
+          <RecentSupporters />
         </div>
       </div>
     </div>
