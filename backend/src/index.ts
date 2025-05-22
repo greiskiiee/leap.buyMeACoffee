@@ -2,6 +2,7 @@ import express, { json } from "express";
 import { userRouter } from "./routes/user";
 import { authRouter } from "./routes/auth";
 import cors from "cors";
+import { profileRouter } from "./routes/profile";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(json());
 
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
+app.use("/profile", profileRouter);
 
 app.get("/", (req, res) => {
   res.send("hello");
